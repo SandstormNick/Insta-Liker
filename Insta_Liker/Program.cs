@@ -19,4 +19,23 @@ namespace Insta_Liker
             Application.Run(new Form1());
         }
     }
+
+    //Iteration 1
+    //
+    //Don't need to get DB involved for this iteration
+    //
+    //Needs to login
+    //Take up to 5 #'s
+    //Run the Selenium bit
+    //-> logins in
+    //-> goes through each # entered and likes the first photos on the "most recent" tab for the #
+
+    //To Do:
+    //
+    //Sort out tab order
+
+
+
+
+
 }
