@@ -1,6 +1,6 @@
 namespace Insta_Liker
 {
-    partial class Form1
+    partial class Liker
     {
         private System.Windows.Forms.Label mainHeaderLabel;
         private System.Windows.Forms.GroupBox CredentialsBox;
@@ -41,16 +41,16 @@ namespace Insta_Liker
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.hashtagFormBox = new System.Windows.Forms.GroupBox();
+            this.hashtagHeaderLabel = new System.Windows.Forms.Label();
             this.hashtag5TextBox = new System.Windows.Forms.TextBox();
             this.hashtag4TextBox = new System.Windows.Forms.TextBox();
             this.hashtag3TextBox = new System.Windows.Forms.TextBox();
             this.hashtag2TextBox = new System.Windows.Forms.TextBox();
             this.hashtag1TextBox = new System.Windows.Forms.TextBox();
-            this.hashtagHeaderLabel = new System.Windows.Forms.Label();
             this.numLikesGroupBox = new System.Windows.Forms.GroupBox();
-            this.numLikesHeader = new System.Windows.Forms.Label();
-            this.numLikesTextBox = new System.Windows.Forms.TextBox();
             this.max100LikesLabel = new System.Windows.Forms.Label();
+            this.numLikesTextBox = new System.Windows.Forms.TextBox();
+            this.numLikesHeader = new System.Windows.Forms.Label();
             this.runButton = new System.Windows.Forms.Button();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
@@ -106,7 +106,7 @@ namespace Insta_Liker
             this.usernameLabel.Location = new System.Drawing.Point(15, 45);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(55, 13);
-            this.usernameLabel.TabIndex = 2;
+            this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "Username";
             // 
             // passwordTextBox
@@ -134,8 +134,18 @@ namespace Insta_Liker
             this.hashtagFormBox.Location = new System.Drawing.Point(12, 157);
             this.hashtagFormBox.Name = "hashtagFormBox";
             this.hashtagFormBox.Size = new System.Drawing.Size(400, 181);
-            this.hashtagFormBox.TabIndex = 0;
+            this.hashtagFormBox.TabIndex = 1;
             this.hashtagFormBox.TabStop = false;
+            // 
+            // hashtagHeaderLabel
+            // 
+            this.hashtagHeaderLabel.AutoSize = true;
+            this.hashtagHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hashtagHeaderLabel.Location = new System.Drawing.Point(15, 16);
+            this.hashtagHeaderLabel.Name = "hashtagHeaderLabel";
+            this.hashtagHeaderLabel.Size = new System.Drawing.Size(23, 17);
+            this.hashtagHeaderLabel.TabIndex = 5;
+            this.hashtagHeaderLabel.Text = "#s";
             // 
             // hashtag5TextBox
             // 
@@ -172,16 +182,6 @@ namespace Insta_Liker
             this.hashtag1TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag1TextBox.TabIndex = 2;
             // 
-            // hashtagHeaderLabel
-            // 
-            this.hashtagHeaderLabel.AutoSize = true;
-            this.hashtagHeaderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hashtagHeaderLabel.Location = new System.Drawing.Point(15, 16);
-            this.hashtagHeaderLabel.Name = "hashtagHeaderLabel";
-            this.hashtagHeaderLabel.Size = new System.Drawing.Size(23, 17);
-            this.hashtagHeaderLabel.TabIndex = 5;
-            this.hashtagHeaderLabel.Text = "#s";
-            // 
             // numLikesGroupBox
             // 
             this.numLikesGroupBox.Controls.Add(this.max100LikesLabel);
@@ -193,6 +193,22 @@ namespace Insta_Liker
             this.numLikesGroupBox.TabIndex = 4;
             this.numLikesGroupBox.TabStop = false;
             // 
+            // max100LikesLabel
+            // 
+            this.max100LikesLabel.AutoSize = true;
+            this.max100LikesLabel.Location = new System.Drawing.Point(189, 51);
+            this.max100LikesLabel.Name = "max100LikesLabel";
+            this.max100LikesLabel.Size = new System.Drawing.Size(66, 13);
+            this.max100LikesLabel.TabIndex = 6;
+            this.max100LikesLabel.Text = "(Max of 100)";
+            // 
+            // numLikesTextBox
+            // 
+            this.numLikesTextBox.Location = new System.Drawing.Point(18, 48);
+            this.numLikesTextBox.Name = "numLikesTextBox";
+            this.numLikesTextBox.Size = new System.Drawing.Size(165, 20);
+            this.numLikesTextBox.TabIndex = 5;
+            // 
             // numLikesHeader
             // 
             this.numLikesHeader.AutoSize = true;
@@ -203,22 +219,6 @@ namespace Insta_Liker
             this.numLikesHeader.TabIndex = 5;
             this.numLikesHeader.Text = "Number of likes";
             // 
-            // numLikesTextBox
-            // 
-            this.numLikesTextBox.Location = new System.Drawing.Point(18, 48);
-            this.numLikesTextBox.Name = "numLikesTextBox";
-            this.numLikesTextBox.Size = new System.Drawing.Size(165, 20);
-            this.numLikesTextBox.TabIndex = 5;
-            // 
-            // max100LikesLabel
-            // 
-            this.max100LikesLabel.AutoSize = true;
-            this.max100LikesLabel.Location = new System.Drawing.Point(189, 51);
-            this.max100LikesLabel.Name = "max100LikesLabel";
-            this.max100LikesLabel.Size = new System.Drawing.Size(66, 13);
-            this.max100LikesLabel.TabIndex = 6;
-            this.max100LikesLabel.Text = "(Max of 100)";
-            // 
             // runButton
             // 
             this.runButton.Location = new System.Drawing.Point(324, 450);
@@ -227,6 +227,7 @@ namespace Insta_Liker
             this.runButton.TabIndex = 5;
             this.runButton.Text = "Run";
             this.runButton.UseVisualStyleBackColor = true;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
             // Form1
             // 

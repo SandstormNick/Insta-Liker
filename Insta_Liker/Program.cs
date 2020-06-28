@@ -16,7 +16,7 @@ namespace Insta_Liker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Liker());
         }
     }
 
@@ -32,7 +32,7 @@ namespace Insta_Liker
 
     //To Do:
     //
-    //Sort out tab order
+    //Refactor Designer.cs
 
 
 
