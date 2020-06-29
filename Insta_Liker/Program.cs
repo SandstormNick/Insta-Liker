@@ -32,6 +32,11 @@ namespace Insta_Liker
 
     //To Do:
     //
+    //1) Install Selenium chromedriver
+    //
+    //
+
+    //To Do Later:
     //Refactor Designer.cs
 
 
