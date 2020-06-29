@@ -24,20 +24,24 @@ namespace Insta_Liker
     //
     //Don't need to get DB involved for this iteration
     //
-    //Needs to login
-    //Take up to 5 #'s
-    //Run the Selenium bit
-    //-> logins in
-    //-> goes through each # entered and likes the first photos on the "most recent" tab for the #
+    //Needs to login (DONE)
+    //Take up to 5 #'s (DONE)
+    //Run the Selenium bit (IN PROGRESS)
+    //-> logins in (DONE)
+    //-> goes through each # entered and likes the first photos on the 
+    //   "most recent" tab for the # (IN PROGRESS)
 
     //To Do:
     //
-    //1) Install Selenium chromedriver
-    //
+    //1) Navigate to search
+    //2) enter #'s and then like the photos based on the NumOfLikes value
+    //3) loops through this based on the num of #'s entered
     //
 
     //To Do Later:
     //Refactor Designer.cs
+    //proper validation on form
+    //split up the Selenium class (this can be part of the refactoring)
 
 
 

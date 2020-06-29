@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selenium.cs" />
     <EmbeddedResource Include="Liker.resx">
       <DependentUpon>Liker.cs</DependentUpon>
     </EmbeddedResource>

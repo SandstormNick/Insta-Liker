@@ -46,12 +46,14 @@ namespace Insta_Liker
             }
 
             NumOfLikes = int.Parse(numLikesTextBox.Text);
+
+            RunLiker();
         }
 
         private void RunLiker()
         {
-            //method name can change
-            // this is where the code must run
+            Selenium theSelenium = new Selenium(UserName, Password);
+            theSelenium.Run();
         }
     }
 }
