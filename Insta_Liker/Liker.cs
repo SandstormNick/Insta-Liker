@@ -20,8 +20,8 @@ namespace Insta_Liker
         private string Password { get; set; }
         private int NumOfLikes { get; set; }
 
-        List<TextBox> HashtagTextBox = new List<TextBox>();
-        List<string> Hashtag = new List<string>();
+        private List<TextBox> HashtagTextBox = new List<TextBox>();
+        private List<string> Hashtag = new List<string>();
         #endregion
 
         public Liker()
@@ -42,7 +42,7 @@ namespace Insta_Liker
 
             for (int i = 0; i < HashtagTextBox.Count(); i++)
             {
-                Hashtag.Add(HashtagTextBox[i].Text);
+                Hashtag.Add("#" + HashtagTextBox[i].Text);
             }
 
             NumOfLikes = int.Parse(numLikesTextBox.Text);
@@ -52,7 +52,7 @@ namespace Insta_Liker
 
         private void RunLiker()
         {
-            Selenium theSelenium = new Selenium(UserName, Password);
+            Selenium theSelenium = new Selenium(UserName, Password, Hashtag);
             theSelenium.Run();
         }
     }
