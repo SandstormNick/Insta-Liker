@@ -64,11 +64,14 @@ namespace Insta_Liker
             SetHashtagImageLink();
             ClickHashtagImageLink();
 
-            SetHeartButton();
-            SetNextImageButton();
+            //SetHeartButton();
+            //SetNextImageButton();
 
             for(int i = 0; i < 10; i++)
             {
+                SetHeartButton();
+                SetNextImageButton();
+
                 ClickHeartButton();
                 ClickNextImageButton();
                 Thread.Sleep(2000);

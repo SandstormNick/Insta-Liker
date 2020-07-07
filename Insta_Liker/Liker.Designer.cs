@@ -115,6 +115,7 @@ namespace Insta_Liker
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(165, 20);
             this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // usernameTextBox
             // 
@@ -122,6 +123,7 @@ namespace Insta_Liker
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(165, 20);
             this.usernameTextBox.TabIndex = 0;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
             // 
             // hashtagFormBox
             // 
@@ -151,6 +153,7 @@ namespace Insta_Liker
             // 
             this.hashtag5TextBox.Location = new System.Drawing.Point(18, 137);
             this.hashtag5TextBox.Name = "hashtag5TextBox";
+            this.hashtag5TextBox.ReadOnly = true;
             this.hashtag5TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag5TextBox.TabIndex = 6;
             // 
@@ -158,6 +161,7 @@ namespace Insta_Liker
             // 
             this.hashtag4TextBox.Location = new System.Drawing.Point(219, 94);
             this.hashtag4TextBox.Name = "hashtag4TextBox";
+            this.hashtag4TextBox.ReadOnly = true;
             this.hashtag4TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag4TextBox.TabIndex = 5;
             // 
@@ -165,6 +169,7 @@ namespace Insta_Liker
             // 
             this.hashtag3TextBox.Location = new System.Drawing.Point(18, 94);
             this.hashtag3TextBox.Name = "hashtag3TextBox";
+            this.hashtag3TextBox.ReadOnly = true;
             this.hashtag3TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag3TextBox.TabIndex = 4;
             // 
@@ -172,8 +177,10 @@ namespace Insta_Liker
             // 
             this.hashtag2TextBox.Location = new System.Drawing.Point(219, 49);
             this.hashtag2TextBox.Name = "hashtag2TextBox";
+            this.hashtag2TextBox.ReadOnly = true;
             this.hashtag2TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag2TextBox.TabIndex = 3;
+            this.hashtag2TextBox.TextChanged += new System.EventHandler(this.hashtag2TextBox_TextChanged);
             // 
             // hashtag1TextBox
             // 
@@ -181,6 +188,7 @@ namespace Insta_Liker
             this.hashtag1TextBox.Name = "hashtag1TextBox";
             this.hashtag1TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag1TextBox.TabIndex = 2;
+            this.hashtag1TextBox.TextChanged += new System.EventHandler(this.hashtag1TextBox_TextChanged);
             // 
             // numLikesGroupBox
             // 
@@ -208,6 +216,7 @@ namespace Insta_Liker
             this.numLikesTextBox.Name = "numLikesTextBox";
             this.numLikesTextBox.Size = new System.Drawing.Size(165, 20);
             this.numLikesTextBox.TabIndex = 5;
+            this.numLikesTextBox.TextChanged += new System.EventHandler(this.numLikesTextBox_TextChanged);
             // 
             // numLikesHeader
             // 
@@ -221,6 +230,7 @@ namespace Insta_Liker
             // 
             // runButton
             // 
+            this.runButton.Enabled = false;
             this.runButton.Location = new System.Drawing.Point(324, 450);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(88, 28);
@@ -229,7 +239,7 @@ namespace Insta_Liker
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
-            // Form1
+            // Liker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +250,7 @@ namespace Insta_Liker
             this.Controls.Add(this.CredentialsBox);
             this.Controls.Add(this.mainHeaderLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "Liker";
             this.Text = "Form1";
             this.CredentialsBox.ResumeLayout(false);
             this.CredentialsBox.PerformLayout();
