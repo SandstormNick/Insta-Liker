@@ -26,9 +26,11 @@ namespace Insta_Liker
         OpenQA.Selenium.IWebElement HashtagImageLink { get; set; }
         OpenQA.Selenium.IWebElement HeartButton { get; set; }
         OpenQA.Selenium.IWebElement NextImageButton { get; set; }
+        OpenQA.Selenium.IWebElement XButton { get; set; }
 
         private string Username { get; set; }
         private string Password { get; set; }
+        private int NumOfLikes { get; set; }
 
         private List<string> Hashtag { get; set; }
 
@@ -36,13 +38,14 @@ namespace Insta_Liker
 
         #endregion
 
-        public Selenium( string username, string password, List<string> hashtag)
+        public Selenium( string username, string password, List<string> hashtag, int numLikes)
         {
             Driver = new ChromeDriver();
 
             Username = username;
             Password = password;
             Hashtag = hashtag;
+            NumOfLikes = numLikes;
         }
 
         //The main method that runs the selenium
@@ -56,36 +59,41 @@ namespace Insta_Liker
             EnterCredentials();
             LogInButton.Click();
 
-            SetHomeScreenElements();
-            EnterHashtag();
-            SetSearchTermLink();
-            ClickSearchTermLink();
-
-            SetHashtagImageLink();
-            ClickHashtagImageLink();
-
-            //SetHeartButton();
-            //SetNextImageButton();
-
-            for(int i = 0; i < 10; i++)
+            for (int tagCount = 0; tagCount < Hashtag.Count(); tagCount++)
             {
-                SetHeartButton();
-                SetNextImageButton();
+                //some teething issues around going onto second hashtag
+                Thread.Sleep(10000);
+                SetHomeScreenElements();
+                EnterHashtag();
+                SetSearchTermLink();
+                ClickSearchTermLink();
 
-                ClickHeartButton();
-                ClickNextImageButton();
-                Thread.Sleep(2000);
+                SetHashtagImageLink();
+                ClickHashtagImageLink();
+
+                for (int i = 0; i < NumOfLikes; i++)
+                {
+                    SetHeartButton();
+                    SetNextImageButton();
+
+                    ClickHeartButton();
+                    ClickNextImageButton();
+                    Thread.Sleep(3000);
+
+                    if (i == NumOfLikes - 1)
+                    {
+                        SetXButton();
+                        ClickXButton();
+                    }
+                }
             }
-
         }
 
         #region Login Screen
         public void SetLoginScreenElements()
         {
             ImplicitWait();
-            //UsernameTextBox = Driver.FindElementByXPath("//input[@name = 'username']");
             UsernameTextBox = Driver.FindElementByName("username");
-            //PasswordTextBox = Driver.FindElementByXPath("//input[@name='password']");
             PasswordTextBox = Driver.FindElementByName("password");
             LogInButton = Driver.FindElementByXPath("//button/div[contains(text(), 'Log In')]");
         }
@@ -174,6 +182,17 @@ namespace Insta_Liker
         public void ClickNextImageButton()
         {
             NextImageButton.Click();
+        }
+
+        public void SetXButton()
+        {
+            ImplicitWait();
+            XButton = Driver.FindElementByXPath("//body/div[4]/div[3]/button");
+        }
+
+        public void ClickXButton()
+        {
+            XButton.Click();
         }
         #endregion
 

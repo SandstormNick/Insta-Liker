@@ -40,8 +40,13 @@ namespace Insta_Liker
 
     //To Do Later:
     //Refactor Designer.cs
-    //proper validation on form
     //split up the Selenium class (this can be part of the refactoring)
+    //sort out a careful algorithm to make the speed of likes look natural
+    //end selenium after its done executing
+
+    //Iteration 2
+    //
+    //Get a basic db going so you could load some of the basic inputs instead of entering them in the whole time
 
 
 

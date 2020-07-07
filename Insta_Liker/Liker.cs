@@ -65,7 +65,7 @@ namespace Insta_Liker
 
             if (UserName != "" && Password != "" && NumOfLikes != 0 && MinHashtags == true)
             {
-                //RunLiker();
+                RunLiker();
             }
             else
             {
@@ -91,7 +91,7 @@ namespace Insta_Liker
 
         private void RunLiker()
         {
-            Selenium theSelenium = new Selenium(UserName, Password, Hashtag);
+            Selenium theSelenium = new Selenium(UserName, Password, Hashtag, NumOfLikes);
             theSelenium.Run();
         }
 
