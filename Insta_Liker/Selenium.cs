@@ -13,7 +13,7 @@ namespace Insta_Liker
         #region Properties
         private ChromeDriver Driver { get; set; }
 
-        private const int FIVE_SECONDS = 5;
+        private const int TEN_SECONDS = 10;
         private const string INSTA_URL = "https://www.instagram.com/";
 
         OpenQA.Selenium.IWebElement UsernameTextBox { get; set; }
@@ -61,7 +61,6 @@ namespace Insta_Liker
 
             for (int tagCount = 0; tagCount < Hashtag.Count(); tagCount++)
             {
-                //some teething issues around going onto second hashtag
                 Thread.Sleep(10000);
                 SetHomeScreenElements();
                 EnterHashtag();
@@ -86,6 +85,8 @@ namespace Insta_Liker
                         ClickXButton();
                     }
                 }
+
+                UpdateHashtagCounter();
             }
         }
 
@@ -153,19 +154,20 @@ namespace Insta_Liker
         #region Hashtag Screen
         public void SetHashtagImageLink()
         {
-            ImplicitWait();
+            Thread.Sleep(5000);
             HashtagImageLink = Driver.FindElementByXPath("//h2[text() = 'Most recent']/following-sibling::div/div/div[1]/div[1]");
         }
 
         public void ClickHashtagImageLink()
         {
+            Thread.Sleep(5000);
             HashtagImageLink.Click();
         }
 
         public void SetHeartButton()
         {
             ImplicitWait();
-            HeartButton = Driver.FindElementByXPath("//article/div[2]/section[1]/span[1]/button");
+            HeartButton = Driver.FindElementByXPath("//article//section/span[1]/button");
         }
 
         public void ClickHeartButton()
@@ -208,7 +210,7 @@ namespace Insta_Liker
 
         public void ImplicitWait()
         {
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(FIVE_SECONDS);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(TEN_SECONDS);
         }
     }
 }
