@@ -22,20 +22,13 @@ namespace Insta_Liker
 
     //Iteration 1
     //
-    //Don't need to get DB involved for this iteration
+    //Add DB aspect
+    //Add try catches for failing tests
+    //exit selenium after the Liker is finished
     //
-    //Needs to login (DONE)
-    //Take up to 5 #'s (DONE)
-    //Run the Selenium bit (IN PROGRESS)
-    //-> logins in (DONE)
-    //-> goes through each # entered and likes the first photos on the 
-    //   "most recent" tab for the # (IN PROGRESS)
 
     //To Do:
     //
-    //1) Navigate to search
-    //2) enter #'s and then like the photos based on the NumOfLikes value
-    //3) loops through this based on the num of #'s entered
     //
 
     //To Do Later:
@@ -43,6 +36,7 @@ namespace Insta_Liker
     //split up the Selenium class (this can be part of the refactoring)
     //sort out a careful algorithm to make the speed of likes look natural
     //end selenium after its done executing
+    //add try catches in cases of elements not loading fast enough
 
     //Iteration 2
     //
