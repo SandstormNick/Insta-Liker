@@ -113,6 +113,7 @@ namespace Insta_Liker
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(219, 61);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '•';
             this.passwordTextBox.Size = new System.Drawing.Size(165, 20);
             this.passwordTextBox.TabIndex = 1;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
