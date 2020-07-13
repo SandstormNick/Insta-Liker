@@ -20,7 +20,7 @@ namespace Insta_Liker
         }
     }
 
-    //Iteration 1
+    //Iteration 2
     //
     //Add DB aspect
     //Add try catches for failing tests
@@ -37,10 +37,6 @@ namespace Insta_Liker
     //sort out a careful algorithm to make the speed of likes look natural
     //end selenium after its done executing
     //add try catches in cases of elements not loading fast enough
-
-    //Iteration 2
-    //
-    //Get a basic db going so you could load some of the basic inputs instead of entering them in the whole time
 
 
 

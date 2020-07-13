@@ -88,6 +88,9 @@ namespace Insta_Liker
 
                 UpdateHashtagCounter();
             }
+
+            Thread.Sleep(5000);
+            QuitDriver();
         }
 
         #region Login Screen
@@ -211,6 +214,11 @@ namespace Insta_Liker
         public void ImplicitWait()
         {
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(TEN_SECONDS);
+        }
+
+        public void QuitDriver()
+        {
+            Driver.Quit();
         }
     }
 }
