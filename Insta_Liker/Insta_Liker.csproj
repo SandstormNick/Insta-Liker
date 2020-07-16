@@ -62,6 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hashtag.cs">
+      <DependentUpon>LikerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Liker.cs">
       <SubType>Form</SubType>
     </Compile>

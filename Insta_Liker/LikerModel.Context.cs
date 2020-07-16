@@ -26,5 +26,6 @@ namespace Insta_Liker
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Hashtag> Hashtags { get; set; }
     }
 }

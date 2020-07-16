@@ -12,21 +12,18 @@ namespace Insta_Liker
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Hashtag
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Hashtag()
         {
-            this.Hashtags = new HashSet<Hashtag>();
+            this.Users = new HashSet<User>();
         }
     
-        public int UserId { get; set; }
-        public string Username { get; set; }
-        public Nullable<System.DateTime> LastRunDate { get; set; }
-        public Nullable<int> NumberOfRuns { get; set; }
-        public Nullable<int> FavouriteCount { get; set; }
+        public int HashtagId { get; set; }
+        public string HashtagString { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hashtag> Hashtags { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

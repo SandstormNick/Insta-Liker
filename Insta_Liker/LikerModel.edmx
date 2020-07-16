@@ -4,19 +4,72 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LikerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LikerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Hashtag">
+          <Key>
+            <PropertyRef Name="HashtagId" />
+          </Key>
+          <Property Name="HashtagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HashtagString" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastRunDate" Type="date" />
+          <Property Name="NumberOfRuns" Type="int" />
+          <Property Name="FavouriteCount" Type="int" />
         </EntityType>
+        <EntityType Name="UserHashtag">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="HashtagId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="HashtagId" Type="int" Nullable="false" />
+          <Property Name="IsFavourite" Type="int" Nullable="false" />
+          <Property Name="LikeCount" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_HashtagId">
+          <End Role="Hashtag" Type="Self.Hashtag" Multiplicity="1" />
+          <End Role="UserHashtag" Type="Self.UserHashtag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hashtag">
+              <PropertyRef Name="HashtagId" />
+            </Principal>
+            <Dependent Role="UserHashtag">
+              <PropertyRef Name="HashtagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserHashtag" Type="Self.UserHashtag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserHashtag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="LikerModelStoreContainer">
+          <EntitySet Name="Hashtag" EntityType="Self.Hashtag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserHashtag" EntityType="Self.UserHashtag" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_HashtagId" Association="Self.FK_dbo_HashtagId">
+            <End Role="Hashtag" EntitySet="Hashtag" />
+            <End Role="UserHashtag" EntitySet="UserHashtag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_UserId" Association="Self.FK_dbo_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserHashtag" EntitySet="UserHashtag" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LikerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -26,10 +79,31 @@
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastRunDate" Type="DateTime" Precision="0" />
+          <Property Name="NumberOfRuns" Type="Int32" />
+          <Property Name="FavouriteCount" Type="Int32" />
+          <NavigationProperty Name="Hashtags" Relationship="LikerModel.UserHashtag" FromRole="User" ToRole="Hashtag" />
         </EntityType>
         <EntityContainer Name="LikerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Hashtags" EntityType="LikerModel.Hashtag" />
+          <AssociationSet Name="UserHashtag" Association="LikerModel.UserHashtag">
+            <End Role="Hashtag" EntitySet="Hashtags" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Hashtag">
+          <Key>
+            <PropertyRef Name="HashtagId" />
+          </Key>
+          <Property Name="HashtagId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HashtagString" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="LikerModel.UserHashtag" FromRole="Hashtag" ToRole="User" />
+        </EntityType>
+        <Association Name="UserHashtag">
+          <End Type="LikerModel.Hashtag" Role="Hashtag" Multiplicity="*" />
+          <End Type="LikerModel.User" Role="User" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -39,11 +113,30 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="LikerModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="FavouriteCount" ColumnName="FavouriteCount" />
+                <ScalarProperty Name="NumberOfRuns" ColumnName="NumberOfRuns" />
+                <ScalarProperty Name="LastRunDate" ColumnName="LastRunDate" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Hashtags">
+            <EntityTypeMapping TypeName="LikerModel.Hashtag">
+              <MappingFragment StoreEntitySet="Hashtag">
+                <ScalarProperty Name="HashtagString" ColumnName="HashtagString" />
+                <ScalarProperty Name="HashtagId" ColumnName="HashtagId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserHashtag" TypeName="LikerModel.UserHashtag" StoreEntitySet="UserHashtag">
+            <EndProperty Name="User">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="Hashtag">
+              <ScalarProperty Name="HashtagId" ColumnName="HashtagId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
