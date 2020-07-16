@@ -24,6 +24,8 @@ namespace Insta_Liker
         private List<string> Hashtag = new List<string>();
 
         private bool MinHashtags { get; set; }
+
+        LikerController likerController;
         #endregion
 
         public Liker()
@@ -35,6 +37,8 @@ namespace Insta_Liker
             HashtagTextBox.Add(hashtag3TextBox);
             HashtagTextBox.Add(hashtag4TextBox);
             HashtagTextBox.Add(hashtag5TextBox);
+
+            likerController = new LikerController();
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -195,5 +199,11 @@ namespace Insta_Liker
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string username = usernameTextBox.Text;
+            likerController.SaveUsername(username);
+        }
     }
 }

@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -71,6 +72,9 @@
     <Compile Include="Liker.Designer.cs">
       <DependentUpon>Liker.cs</DependentUpon>
     </Compile>
+    <Compile Include="LikerBLL.cs" />
+    <Compile Include="LikerController.cs" />
+    <Compile Include="LikerDAL.cs" />
     <Compile Include="LikerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -123,7 +127,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LikerModel.Context.tt">

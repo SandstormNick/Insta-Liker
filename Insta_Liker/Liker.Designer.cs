@@ -52,6 +52,7 @@ namespace Insta_Liker
             this.numLikesTextBox = new System.Windows.Forms.TextBox();
             this.numLikesHeader = new System.Windows.Forms.Label();
             this.runButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
             this.numLikesGroupBox.SuspendLayout();
@@ -240,11 +241,22 @@ namespace Insta_Liker
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(269, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Save username (temp)";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Liker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 490);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.runButton);
             this.Controls.Add(this.numLikesGroupBox);
             this.Controls.Add(this.hashtagFormBox);
@@ -281,6 +293,7 @@ namespace Insta_Liker
         private System.Windows.Forms.TextBox numLikesTextBox;
         private System.Windows.Forms.Label numLikesHeader;
         private System.Windows.Forms.Button runButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
