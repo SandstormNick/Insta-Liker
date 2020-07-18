@@ -17,5 +17,10 @@ namespace Insta_Liker
                 dal.SaveUsername(username);
             }
         }
+
+        public string GetUsername()
+        {
+            return dal.GetUsername();
+        }
     }
 }

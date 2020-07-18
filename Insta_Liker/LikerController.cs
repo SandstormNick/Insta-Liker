@@ -15,5 +15,10 @@ namespace Insta_Liker
             bll.SaveUsername(username);
         }
 
+        public string GetUsername()
+        {
+            return bll.GetUsername();
+        }
+
     }
 }

@@ -63,9 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hashtag.cs">
-      <DependentUpon>LikerModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Liker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,27 +72,9 @@
     <Compile Include="LikerBLL.cs" />
     <Compile Include="LikerController.cs" />
     <Compile Include="LikerDAL.cs" />
-    <Compile Include="LikerModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LikerModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LikerModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LikerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LikerModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LikerModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selenium.cs" />
-    <Compile Include="User.cs">
-      <DependentUpon>LikerModel.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Liker.resx">
       <DependentUpon>Liker.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,14 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="LikerModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LikerModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="LikerModel.edmx.diagram">
-      <DependentUpon>LikerModel.edmx</DependentUpon>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,18 +104,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="LikerModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LikerModel.Context.cs</LastGenOutput>
-      <DependentUpon>LikerModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="LikerModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LikerModel.edmx</DependentUpon>
-      <LastGenOutput>LikerModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

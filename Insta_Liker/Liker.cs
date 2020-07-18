@@ -205,5 +205,11 @@ namespace Insta_Liker
             string username = usernameTextBox.Text;
             likerController.SaveUsername(username);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string username = likerController.GetUsername();
+            usernameTextBox.Text = username;
+        }
     }
 }

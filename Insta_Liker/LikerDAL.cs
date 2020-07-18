@@ -33,9 +33,24 @@ namespace Insta_Liker
             sqlConn.Close();
             
         }
+
+        public string GetUsername()
+        {
+            string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
+            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            string sqlGet = "SELECT Username FROM [dbo].[User] WHERE UserId = 1";
+
+            sqlConn.Open();
+            command = new SqlCommand(sqlGet, sqlConn);
+
+            string username = (string)(command.ExecuteScalar());
+
+            command.Dispose();
+            sqlConn.Close();
+
+            return username;
+        }
     }
 }
-//connectionString="data source=localhost;
-//   initial catalog = northwind; persist security info=True; 
-//   Integrated Security = SSPI;" 
-//   providerName="System.Data.SqlClient"

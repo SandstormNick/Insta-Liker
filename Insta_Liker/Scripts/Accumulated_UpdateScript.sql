@@ -2,59 +2,55 @@
 CREATE DATABASE Liker
 
 -- Create User table
-USE Liker
 CREATE TABLE [dbo].[User] (
 	[UserId] INT IDENTITY (1, 1) NOT NULL,
 	[Username] VARCHAR (100) NOT NULL,
+	[LastRunDate] DATE DEFAULT GETDATE(),
+	[NumberOfRuns] INT DEFAULT 0,
+	[FavouriteCount] INT DEFAULT 0,
 	CONSTRAINT [PK_dbo.User] PRIMARY KEY CLUSTERED ([UserId] ASC)
 );
 --------------------------------------------------------------------
 
---Alter User Table
---Add LastRunDate = The last time the Liker Bot was run for the user
-USE Liker
-ALTER TABLE [dbo].[User]
-ADD [LastRunDate] DATE;
---------------------------------------------------------------------
-
---Add NumberOfRuns = Keeps a count of every time the Liker Bot was run for a user
-ALTER TABLE [dbo].[User]
-ADD [NumberOfRuns] INT;
---------------------------------------------------------------------
-
---Add FavouriteCount = Keeps a count of the number of favourite hashtags for a user
---Add functionality to limit favourite hashtags to 5. In stored procs AND/OR the Code
-ALTER TABLE [dbo].[User]
-ADD [FavouriteCount] INT;
---------------------------------------------------------------------
-
--- Create UserHashtag mapping table
-USE Liker
-CREATE TABLE [dbo].[UserHashtag] (
-	[UserId] INT NOT NULL,
-	[HashtagId] INT NOT NULL,
-	CONSTRAINT [FK_dbo.HashtagId] FOREIGN KEY ([HashtagId]) REFERENCES [dbo].[Hashtag](HashtagId),
-	CONSTRAINT [FK_dbo.UserId] FOREIGN KEY (UserId) REFERENCES [dbo].[User](UserId)
+--Create Hashtag table
+CREATE TABLE [dbo].[Hashtag] (
+	[HashtagId] INT IDENTITY (1, 1) NOT NULL,
+	[HashtagString] VARCHAR (100) NOT NULL
+	CONSTRAINT [PK_dbo.Hashtag] PRIMARY KEY CLUSTERED ([HashtagId] ASC)
 );
 --------------------------------------------------------------------
 
---Give UserHashtag table a PK
-USE Liker
-ALTER TABLE [dbo].[UserHashtag]
-ADD ID INT NOT NULL
-
-ALTER TABLE [dbo].[UserHashtag]
-ADD PRIMARY KEY (ID)
+-- Create UserHashtag mapping table
+CREATE TABLE [dbo].[UserHashtag] (
+	[UserHashtagId] INT IDENTITY (1, 1) NOT NULL,
+	[UserId] INT NOT NULL,
+	[HashtagId] INT NOT NULL,
+	[IsFavourite] INT DEFAULT 0,
+	[LikeCount] INT DEFAULT 0
+	CONSTRAINT [PK_dbo.UserHashtag] PRIMARY KEY CLUSTERED ([UserHashtagId] ASC),
+	CONSTRAINT [FK_dbo.HashtagId] FOREIGN KEY ([HashtagId]) REFERENCES [dbo].[Hashtag](HashtagId),
+	CONSTRAINT [FK_dbo.UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User](UserId)
+);
 --------------------------------------------------------------------
 
---Add IsFavourite Column in UserHashtag
-USE Liker
-ALTER TABLE [dbo].[UserHashtag]
-ADD IsFavourite INT NOT NULL
+-- Create FollowStats table
+CREATE TABLE [dbo].[FollowStats] (
+	[UserId] INT NOT NULL,
+	[FollowingCount] INT DEFAULT 0,
+	[FollowerCount] INT DEFAULT 0,
+	[LastRunDate] DATE DEFAULT GETDATE(),
+	CONSTRAINT [PK_dbo.FollowStats] PRIMARY KEY CLUSTERED ([UserId] ASC),
+	CONSTRAINT [FK_dbo.FollowStats_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User](UserId)
+);
 --------------------------------------------------------------------
 
---Add LikeCount Column in UserHashtag
--- Counts the number of likes are performed for this Hashtag on the associated user account
-USE Liker
-ALTER TABLE [dbo].[UserHashtag]
-ADD LikeCount INT
+-- Create FollowStatsHistory
+CREATE TABLE [dbo].[FollowStatsHistory] (
+	[FollowStatsHistoryId] INT IDENTITY (1, 1) NOT NULL,
+	[UserId] INT NOT NULL,
+	[Date] DATE NOT NULL,
+	[FollowingCount] INT DEFAULT 0,
+	[FollowerCount] INT DEFAULT 0,
+	CONSTRAINT [PK_dbo.FollowStatsHistory] PRIMARY KEY CLUSTERED ([FollowStatsHistoryId] ASC),
+	CONSTRAINT [FK_dbo.FollowStatsHistory_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[FollowStats](UserId)
+);
