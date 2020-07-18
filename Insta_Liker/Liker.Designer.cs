@@ -52,11 +52,14 @@ namespace Insta_Liker
             this.numLikesTextBox = new System.Windows.Forms.TextBox();
             this.numLikesHeader = new System.Windows.Forms.Label();
             this.runButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TabControl = new System.Windows.Forms.TabControl();
+            this.likerbotTabPage = new System.Windows.Forms.TabPage();
+            this.userTabPage = new System.Windows.Forms.TabPage();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
             this.numLikesGroupBox.SuspendLayout();
+            this.TabControl.SuspendLayout();
+            this.likerbotTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainHeaderLabel
@@ -77,7 +80,7 @@ namespace Insta_Liker
             this.CredentialsBox.Controls.Add(this.usernameLabel);
             this.CredentialsBox.Controls.Add(this.passwordTextBox);
             this.CredentialsBox.Controls.Add(this.usernameTextBox);
-            this.CredentialsBox.Location = new System.Drawing.Point(12, 48);
+            this.CredentialsBox.Location = new System.Drawing.Point(6, 6);
             this.CredentialsBox.Name = "CredentialsBox";
             this.CredentialsBox.Size = new System.Drawing.Size(400, 97);
             this.CredentialsBox.TabIndex = 0;
@@ -136,7 +139,7 @@ namespace Insta_Liker
             this.hashtagFormBox.Controls.Add(this.hashtag3TextBox);
             this.hashtagFormBox.Controls.Add(this.hashtag2TextBox);
             this.hashtagFormBox.Controls.Add(this.hashtag1TextBox);
-            this.hashtagFormBox.Location = new System.Drawing.Point(12, 157);
+            this.hashtagFormBox.Location = new System.Drawing.Point(6, 109);
             this.hashtagFormBox.Name = "hashtagFormBox";
             this.hashtagFormBox.Size = new System.Drawing.Size(400, 181);
             this.hashtagFormBox.TabIndex = 1;
@@ -167,6 +170,7 @@ namespace Insta_Liker
             this.hashtag4TextBox.ReadOnly = true;
             this.hashtag4TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag4TextBox.TabIndex = 5;
+            this.hashtag4TextBox.TextChanged += new System.EventHandler(this.hashtag4TextBox_TextChanged);
             // 
             // hashtag3TextBox
             // 
@@ -175,6 +179,7 @@ namespace Insta_Liker
             this.hashtag3TextBox.ReadOnly = true;
             this.hashtag3TextBox.Size = new System.Drawing.Size(165, 20);
             this.hashtag3TextBox.TabIndex = 4;
+            this.hashtag3TextBox.TextChanged += new System.EventHandler(this.hashtag3TextBox_TextChanged);
             // 
             // hashtag2TextBox
             // 
@@ -198,7 +203,7 @@ namespace Insta_Liker
             this.numLikesGroupBox.Controls.Add(this.max100LikesLabel);
             this.numLikesGroupBox.Controls.Add(this.numLikesTextBox);
             this.numLikesGroupBox.Controls.Add(this.numLikesHeader);
-            this.numLikesGroupBox.Location = new System.Drawing.Point(12, 350);
+            this.numLikesGroupBox.Location = new System.Drawing.Point(6, 296);
             this.numLikesGroupBox.Name = "numLikesGroupBox";
             this.numLikesGroupBox.Size = new System.Drawing.Size(400, 83);
             this.numLikesGroupBox.TabIndex = 4;
@@ -234,7 +239,7 @@ namespace Insta_Liker
             // runButton
             // 
             this.runButton.Enabled = false;
-            this.runButton.Location = new System.Drawing.Point(324, 450);
+            this.runButton.Location = new System.Drawing.Point(318, 398);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(88, 28);
             this.runButton.TabIndex = 5;
@@ -242,37 +247,46 @@ namespace Insta_Liker
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
-            // button1
+            // TabControl
             // 
-            this.button1.Location = new System.Drawing.Point(269, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Save username (temp)";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.TabControl.Controls.Add(this.likerbotTabPage);
+            this.TabControl.Controls.Add(this.userTabPage);
+            this.TabControl.Location = new System.Drawing.Point(12, 41);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(421, 458);
+            this.TabControl.TabIndex = 6;
             // 
-            // button2
+            // likerbotTabPage
             // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Get Username (temp)";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.likerbotTabPage.Controls.Add(this.CredentialsBox);
+            this.likerbotTabPage.Controls.Add(this.runButton);
+            this.likerbotTabPage.Controls.Add(this.hashtagFormBox);
+            this.likerbotTabPage.Controls.Add(this.numLikesGroupBox);
+            this.likerbotTabPage.Location = new System.Drawing.Point(4, 22);
+            this.likerbotTabPage.Name = "likerbotTabPage";
+            this.likerbotTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.likerbotTabPage.Size = new System.Drawing.Size(413, 432);
+            this.likerbotTabPage.TabIndex = 0;
+            this.likerbotTabPage.Text = "LikerBot";
+            this.likerbotTabPage.UseVisualStyleBackColor = true;
+            // 
+            // userTabPage
+            // 
+            this.userTabPage.Location = new System.Drawing.Point(4, 22);
+            this.userTabPage.Name = "userTabPage";
+            this.userTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.userTabPage.Size = new System.Drawing.Size(413, 432);
+            this.userTabPage.TabIndex = 1;
+            this.userTabPage.Text = "User";
+            this.userTabPage.UseVisualStyleBackColor = true;
             // 
             // Liker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 490);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.runButton);
-            this.Controls.Add(this.numLikesGroupBox);
-            this.Controls.Add(this.hashtagFormBox);
-            this.Controls.Add(this.CredentialsBox);
+            this.ClientSize = new System.Drawing.Size(438, 505);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.mainHeaderLabel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Liker";
@@ -283,6 +297,8 @@ namespace Insta_Liker
             this.hashtagFormBox.PerformLayout();
             this.numLikesGroupBox.ResumeLayout(false);
             this.numLikesGroupBox.PerformLayout();
+            this.TabControl.ResumeLayout(false);
+            this.likerbotTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,8 +321,9 @@ namespace Insta_Liker
         private System.Windows.Forms.TextBox numLikesTextBox;
         private System.Windows.Forms.Label numLikesHeader;
         private System.Windows.Forms.Button runButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabControl TabControl;
+        private System.Windows.Forms.TabPage likerbotTabPage;
+        private System.Windows.Forms.TabPage userTabPage;
     }
 }
 

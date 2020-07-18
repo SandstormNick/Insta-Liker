@@ -24,7 +24,6 @@ namespace Insta_Liker
     //
     //Add DB aspect
     //Add try catches for failing tests
-    //exit selenium after the Liker is finished
     //
 
     //To Do:
