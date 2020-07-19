@@ -200,16 +200,14 @@ namespace Insta_Liker
         }
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addUserButton_Click(object sender, EventArgs e)
         {
-            string username = usernameTextBox.Text;
-            likerController.SaveUsername(username);
+            addUserPanel.Visible = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void saveUserInfoButton_Click(object sender, EventArgs e)
         {
-            string username = likerController.GetUsername();
-            usernameTextBox.Text = username;
+
         }
     }
 }

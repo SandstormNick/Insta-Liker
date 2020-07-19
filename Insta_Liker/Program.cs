@@ -26,8 +26,8 @@ namespace Insta_Liker
     //Add try catches for failing tests
     //
 
-    //To Do:
-    //
+    //To Do In next commits:
+    //Add User into DB (use stored procs)
     //
 
     //To Do Later:
