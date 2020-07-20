@@ -72,7 +72,7 @@
     <Compile Include="LogicLayers\LikerBLL.cs" />
     <Compile Include="LikerController.cs" />
     <Compile Include="LogicLayers\LikerDAL.cs" />
-    <Compile Include="Models\AddUserVM.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selenium.cs" />

@@ -27,7 +27,7 @@ namespace Insta_Liker
     //
 
     //To Do In next commits:
-    //Add User into DB (use stored procs)
+    //-->sp_CreateUser -> don't allow for duplicate usernames and add fav hashtags (find out how to add multiple create sp in one sql file)
     //
 
     //To Do Later:

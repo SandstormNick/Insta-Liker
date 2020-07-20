@@ -55,19 +55,18 @@ namespace Insta_Liker
             this.TabControl = new System.Windows.Forms.TabControl();
             this.likerbotTabPage = new System.Windows.Forms.TabPage();
             this.userTabPage = new System.Windows.Forms.TabPage();
-            this.addUserButton = new System.Windows.Forms.Button();
-            this.loadUserButton = new System.Windows.Forms.Button();
             this.addUserPanel = new System.Windows.Forms.Panel();
-            this.addUsernameLabel = new System.Windows.Forms.Label();
-            this.addUsernameTextbox = new System.Windows.Forms.TextBox();
-            this.addHashtagLabel = new System.Windows.Forms.Label();
-            this.addHashtag1 = new System.Windows.Forms.TextBox();
-            this.addHashtag2 = new System.Windows.Forms.TextBox();
-            this.addHashtag3 = new System.Windows.Forms.TextBox();
-            this.addHashtag4 = new System.Windows.Forms.TextBox();
-            this.addHashtag5 = new System.Windows.Forms.TextBox();
-            this.addHashtag6 = new System.Windows.Forms.TextBox();
             this.saveUserInfoButton = new System.Windows.Forms.Button();
+            this.addHashtag5 = new System.Windows.Forms.TextBox();
+            this.addHashtag4 = new System.Windows.Forms.TextBox();
+            this.addHashtag3 = new System.Windows.Forms.TextBox();
+            this.addHashtag2 = new System.Windows.Forms.TextBox();
+            this.addHashtag1 = new System.Windows.Forms.TextBox();
+            this.addHashtagLabel = new System.Windows.Forms.Label();
+            this.addUsernameTextbox = new System.Windows.Forms.TextBox();
+            this.addUsernameLabel = new System.Windows.Forms.Label();
+            this.loadUserButton = new System.Windows.Forms.Button();
+            this.addUserButton = new System.Windows.Forms.Button();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
             this.numLikesGroupBox.SuspendLayout();
@@ -299,29 +298,9 @@ namespace Insta_Liker
             this.userTabPage.Text = "User";
             this.userTabPage.UseVisualStyleBackColor = true;
             // 
-            // addUserButton
-            // 
-            this.addUserButton.Location = new System.Drawing.Point(6, 6);
-            this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(75, 23);
-            this.addUserButton.TabIndex = 0;
-            this.addUserButton.Text = "Add User";
-            this.addUserButton.UseVisualStyleBackColor = true;
-            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
-            // 
-            // loadUserButton
-            // 
-            this.loadUserButton.Location = new System.Drawing.Point(87, 6);
-            this.loadUserButton.Name = "loadUserButton";
-            this.loadUserButton.Size = new System.Drawing.Size(75, 23);
-            this.loadUserButton.TabIndex = 1;
-            this.loadUserButton.Text = "Load User";
-            this.loadUserButton.UseVisualStyleBackColor = true;
-            // 
             // addUserPanel
             // 
             this.addUserPanel.Controls.Add(this.saveUserInfoButton);
-            this.addUserPanel.Controls.Add(this.addHashtag6);
             this.addUserPanel.Controls.Add(this.addHashtag5);
             this.addUserPanel.Controls.Add(this.addHashtag4);
             this.addUserPanel.Controls.Add(this.addHashtag3);
@@ -336,22 +315,50 @@ namespace Insta_Liker
             this.addUserPanel.TabIndex = 2;
             this.addUserPanel.Visible = false;
             // 
-            // addUsernameLabel
+            // saveUserInfoButton
             // 
-            this.addUsernameLabel.AutoSize = true;
-            this.addUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.addUsernameLabel.Location = new System.Drawing.Point(3, 18);
-            this.addUsernameLabel.Name = "addUsernameLabel";
-            this.addUsernameLabel.Size = new System.Drawing.Size(77, 17);
-            this.addUsernameLabel.TabIndex = 0;
-            this.addUsernameLabel.Text = "Username:";
+            this.saveUserInfoButton.Location = new System.Drawing.Point(274, 236);
+            this.saveUserInfoButton.Name = "saveUserInfoButton";
+            this.saveUserInfoButton.Size = new System.Drawing.Size(75, 23);
+            this.saveUserInfoButton.TabIndex = 4;
+            this.saveUserInfoButton.Text = "Save User";
+            this.saveUserInfoButton.UseVisualStyleBackColor = true;
+            this.saveUserInfoButton.Click += new System.EventHandler(this.saveUserInfoButton_Click);
             // 
-            // addUsernameTextbox
+            // addHashtag5
             // 
-            this.addUsernameTextbox.Location = new System.Drawing.Point(86, 18);
-            this.addUsernameTextbox.Name = "addUsernameTextbox";
-            this.addUsernameTextbox.Size = new System.Drawing.Size(156, 20);
-            this.addUsernameTextbox.TabIndex = 1;
+            this.addHashtag5.Location = new System.Drawing.Point(6, 195);
+            this.addHashtag5.Name = "addHashtag5";
+            this.addHashtag5.Size = new System.Drawing.Size(150, 20);
+            this.addHashtag5.TabIndex = 3;
+            // 
+            // addHashtag4
+            // 
+            this.addHashtag4.Location = new System.Drawing.Point(199, 151);
+            this.addHashtag4.Name = "addHashtag4";
+            this.addHashtag4.Size = new System.Drawing.Size(150, 20);
+            this.addHashtag4.TabIndex = 3;
+            // 
+            // addHashtag3
+            // 
+            this.addHashtag3.Location = new System.Drawing.Point(6, 151);
+            this.addHashtag3.Name = "addHashtag3";
+            this.addHashtag3.Size = new System.Drawing.Size(150, 20);
+            this.addHashtag3.TabIndex = 3;
+            // 
+            // addHashtag2
+            // 
+            this.addHashtag2.Location = new System.Drawing.Point(199, 104);
+            this.addHashtag2.Name = "addHashtag2";
+            this.addHashtag2.Size = new System.Drawing.Size(150, 20);
+            this.addHashtag2.TabIndex = 3;
+            // 
+            // addHashtag1
+            // 
+            this.addHashtag1.Location = new System.Drawing.Point(6, 104);
+            this.addHashtag1.Name = "addHashtag1";
+            this.addHashtag1.Size = new System.Drawing.Size(150, 20);
+            this.addHashtag1.TabIndex = 3;
             // 
             // addHashtagLabel
             // 
@@ -363,57 +370,41 @@ namespace Insta_Liker
             this.addHashtagLabel.TabIndex = 2;
             this.addHashtagLabel.Text = "Add Hashtag\'s";
             // 
-            // addHashtag1
+            // addUsernameTextbox
             // 
-            this.addHashtag1.Location = new System.Drawing.Point(6, 104);
-            this.addHashtag1.Name = "addHashtag1";
-            this.addHashtag1.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag1.TabIndex = 3;
+            this.addUsernameTextbox.Location = new System.Drawing.Point(86, 18);
+            this.addUsernameTextbox.Name = "addUsernameTextbox";
+            this.addUsernameTextbox.Size = new System.Drawing.Size(156, 20);
+            this.addUsernameTextbox.TabIndex = 1;
             // 
-            // addHashtag2
+            // addUsernameLabel
             // 
-            this.addHashtag2.Location = new System.Drawing.Point(199, 104);
-            this.addHashtag2.Name = "addHashtag2";
-            this.addHashtag2.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag2.TabIndex = 3;
+            this.addUsernameLabel.AutoSize = true;
+            this.addUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.addUsernameLabel.Location = new System.Drawing.Point(3, 18);
+            this.addUsernameLabel.Name = "addUsernameLabel";
+            this.addUsernameLabel.Size = new System.Drawing.Size(77, 17);
+            this.addUsernameLabel.TabIndex = 0;
+            this.addUsernameLabel.Text = "Username:";
             // 
-            // addHashtag3
+            // loadUserButton
             // 
-            this.addHashtag3.Location = new System.Drawing.Point(6, 151);
-            this.addHashtag3.Name = "addHashtag3";
-            this.addHashtag3.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag3.TabIndex = 3;
+            this.loadUserButton.Location = new System.Drawing.Point(87, 6);
+            this.loadUserButton.Name = "loadUserButton";
+            this.loadUserButton.Size = new System.Drawing.Size(75, 23);
+            this.loadUserButton.TabIndex = 1;
+            this.loadUserButton.Text = "Load User";
+            this.loadUserButton.UseVisualStyleBackColor = true;
             // 
-            // addHashtag4
+            // addUserButton
             // 
-            this.addHashtag4.Location = new System.Drawing.Point(199, 151);
-            this.addHashtag4.Name = "addHashtag4";
-            this.addHashtag4.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag4.TabIndex = 3;
-            // 
-            // addHashtag5
-            // 
-            this.addHashtag5.Location = new System.Drawing.Point(6, 195);
-            this.addHashtag5.Name = "addHashtag5";
-            this.addHashtag5.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag5.TabIndex = 3;
-            // 
-            // addHashtag6
-            // 
-            this.addHashtag6.Location = new System.Drawing.Point(199, 195);
-            this.addHashtag6.Name = "addHashtag6";
-            this.addHashtag6.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag6.TabIndex = 3;
-            // 
-            // saveUserInfoButton
-            // 
-            this.saveUserInfoButton.Location = new System.Drawing.Point(274, 236);
-            this.saveUserInfoButton.Name = "saveUserInfoButton";
-            this.saveUserInfoButton.Size = new System.Drawing.Size(75, 23);
-            this.saveUserInfoButton.TabIndex = 4;
-            this.saveUserInfoButton.Text = "Save User";
-            this.saveUserInfoButton.UseVisualStyleBackColor = true;
-            this.saveUserInfoButton.Click += new System.EventHandler(this.saveUserInfoButton_Click);
+            this.addUserButton.Location = new System.Drawing.Point(6, 6);
+            this.addUserButton.Name = "addUserButton";
+            this.addUserButton.Size = new System.Drawing.Size(75, 23);
+            this.addUserButton.TabIndex = 0;
+            this.addUserButton.Text = "Add User";
+            this.addUserButton.UseVisualStyleBackColor = true;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // Liker
             // 
@@ -463,7 +454,6 @@ namespace Insta_Liker
         private System.Windows.Forms.TabPage userTabPage;
         private System.Windows.Forms.Panel addUserPanel;
         private System.Windows.Forms.Button saveUserInfoButton;
-        private System.Windows.Forms.TextBox addHashtag6;
         private System.Windows.Forms.TextBox addHashtag5;
         private System.Windows.Forms.TextBox addHashtag4;
         private System.Windows.Forms.TextBox addHashtag3;

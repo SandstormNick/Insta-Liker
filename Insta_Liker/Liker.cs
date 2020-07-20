@@ -8,9 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// This is the code for your desktop app.
-// Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-
 namespace Insta_Liker
 {
     public partial class Liker : Form
@@ -207,7 +204,7 @@ namespace Insta_Liker
 
         private void saveUserInfoButton_Click(object sender, EventArgs e)
         {
-
+            likerController.SaveUser(addUsernameTextbox.Text);
         }
     }
 }

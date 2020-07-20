@@ -9,12 +9,12 @@ namespace Insta_Liker
     class LikerBLL
     {
         LikerDAL dal = new LikerDAL();
-        //temp method
-        public void SaveUsername(string username)
+        
+        public void SaveUser(string username)
         {
-            if (username != "")
+            if (username != "" && username != null)
             {
-                dal.SaveUsername(username);
+                dal.SaveUser(username);
             }
         }
 

@@ -9,26 +9,21 @@ namespace Insta_Liker
 {
     class LikerDAL
     {
-        
-        //temp method
-        public void SaveUsername(string username)
+        public void SaveUser(string username)
         {
-            //Save to the database
-            //string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerEntities"].ConnectionString;
+            //Save User to the database
             string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            string sqlInsert = "INSERT INTO [dbo].[User] (Username) VALUES ('" + username + "')";
 
             sqlConn.Open();
 
-            command = new SqlCommand(sqlInsert, sqlConn);
+            command = new SqlCommand("CreateUser", sqlConn);
 
-            adapter.InsertCommand = new SqlCommand(sqlInsert, sqlConn);
-            adapter.InsertCommand.ExecuteNonQuery();
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@username", username);
 
-
+            command.ExecuteNonQuery();
             command.Dispose();
             sqlConn.Close();
             

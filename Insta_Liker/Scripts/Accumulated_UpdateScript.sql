@@ -5,9 +5,10 @@ CREATE DATABASE Liker
 CREATE TABLE [dbo].[User] (
 	[UserId] INT IDENTITY (1, 1) NOT NULL,
 	[Username] VARCHAR (100) NOT NULL,
-	[LastRunDate] DATE DEFAULT GETDATE(),
+	[DateCreated] DATE DEFAULT GETDATE(),
 	[NumberOfRuns] INT DEFAULT 0,
 	[FavouriteCount] INT DEFAULT 0,
+	[LastRunDate] DATE NULL,
 	CONSTRAINT [PK_dbo.User] PRIMARY KEY CLUSTERED ([UserId] ASC)
 );
 --------------------------------------------------------------------
