@@ -1,5 +1,6 @@
 --Create the Database
 CREATE DATABASE Liker
+-- Create DB first and then run the rest of the script
 
 -- Create User table
 CREATE TABLE [dbo].[User] (

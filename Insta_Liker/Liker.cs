@@ -20,6 +20,9 @@ namespace Insta_Liker
         private List<TextBox> HashtagTextBox = new List<TextBox>();
         private List<string> Hashtag = new List<string>();
 
+        private List<TextBox> AddHashtagTextBox = new List<TextBox>();
+        private List<string> AddHashtag = new List<string>();
+
         private bool MinHashtags { get; set; }
 
         LikerController likerController;
@@ -204,7 +207,43 @@ namespace Insta_Liker
 
         private void saveUserInfoButton_Click(object sender, EventArgs e)
         {
-            likerController.SaveUser(addUsernameTextbox.Text);
+            int response;
+            SetAddHashtagTextboxes();
+            AddUserHashtags();
+            response = likerController.SaveUser(addUsernameTextbox.Text, AddHashtag);
+
+            if (response > -1)
+            {
+                MessageBox.Show("Username Saved", "Status", MessageBoxButtons.OK);
+            }
+            else if (response == -1)
+            {
+                MessageBox.Show("Username already exists", "Status", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Enter a Username", "Status", MessageBoxButtons.OK);
+            }
+        }
+
+        private void SetAddHashtagTextboxes()
+        {
+            AddHashtagTextBox.Add(addHashtag1);
+            AddHashtagTextBox.Add(addHashtag2);
+            AddHashtagTextBox.Add(addHashtag3);
+            AddHashtagTextBox.Add(addHashtag4);
+            AddHashtagTextBox.Add(addHashtag5);
+        }
+
+        private void AddUserHashtags()
+        {
+            for (int i = 0; i < AddHashtagTextBox.Count(); i++)
+            {
+                if (!string.IsNullOrEmpty(AddHashtagTextBox[i].Text))
+                {
+                    AddHashtag.Add(AddHashtagTextBox[i].Text);
+                }
+            }
         }
     }
 }

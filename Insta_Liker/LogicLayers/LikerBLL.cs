@@ -10,12 +10,25 @@ namespace Insta_Liker
     {
         LikerDAL dal = new LikerDAL();
         
-        public void SaveUser(string username)
+        public int SaveUsername(string username)
         {
-            if (username != "" && username != null)
-            {
-                dal.SaveUser(username);
-            }
+            int response = dal.SaveUsername(username);
+
+            //if (username != "" && username != null)
+            //{
+            //    response = dal.SaveUsername(username);
+            //}
+            return response;
+        }
+
+        public void SaveHashtags(string hashtag)
+        {
+            dal.SaveHashtags(hashtag);
+        }
+
+        public void SaveUserHashtag(int userId, string hashtag)
+        {
+            dal.SaveUserHashtag(userId, hashtag);
         }
 
         public string GetUsername()
