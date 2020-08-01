@@ -95,8 +95,23 @@ namespace Insta_Liker
 
         private void RunLiker()
         {
+            int runPassed = 1;
             Selenium theSelenium = new Selenium(UserName, Password, Hashtag, NumOfLikes);
-            theSelenium.Run();
+            runPassed = theSelenium.Run();
+            DisplayLikerPostRunMessage(runPassed);
+        }
+
+        private void DisplayLikerPostRunMessage(int runPassed)
+        {
+            //if runPassed = 1 then the Liker Bot completed successfully
+            if (runPassed == 1)
+            {
+                MessageBox.Show("Liker Bot Completed Successfully", "Liker Bot Run", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("An unexpected error occured during the Liker Bot run", "Liker Bot Run", MessageBoxButtons.OK);
+            }
         }
 
         #region Events

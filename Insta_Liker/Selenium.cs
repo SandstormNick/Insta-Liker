@@ -49,48 +49,58 @@ namespace Insta_Liker
         }
 
         //The main method that runs the selenium
-        public void Run()
+        public int Run()
         {
-            MaximiseWindow();
-            NavigateToWebsite();
-
-            SetLoginScreenElements();
-
-            EnterCredentials();
-            LogInButton.Click();
-
-            for (int tagCount = 0; tagCount < Hashtag.Count(); tagCount++)
+            int runPassed = 1;
+            try
             {
-                Thread.Sleep(10000);
-                SetHomeScreenElements();
-                EnterHashtag();
-                SetSearchTermLink();
-                ClickSearchTermLink();
+                MaximiseWindow();
+                NavigateToWebsite();
 
-                SetHashtagImageLink();
-                ClickHashtagImageLink();
+                SetLoginScreenElements();
 
-                for (int i = 0; i < NumOfLikes; i++)
+                EnterCredentials();
+                LogInButton.Click();
+
+                for (int tagCount = 0; tagCount < Hashtag.Count(); tagCount++)
                 {
-                    SetHeartButton();
-                    SetNextImageButton();
+                    Thread.Sleep(10000);
+                    SetHomeScreenElements();
+                    EnterHashtag();
+                    SetSearchTermLink();
+                    ClickSearchTermLink();
 
-                    ClickHeartButton();
-                    ClickNextImageButton();
-                    Thread.Sleep(3000);
+                    SetHashtagImageLink();
+                    ClickHashtagImageLink();
 
-                    if (i == NumOfLikes - 1)
+                    for (int i = 0; i < NumOfLikes; i++)
                     {
-                        SetXButton();
-                        ClickXButton();
-                    }
-                }
+                        SetHeartButton();
+                        SetNextImageButton();
 
-                UpdateHashtagCounter();
+                        ClickHeartButton();
+                        ClickNextImageButton();
+                        Thread.Sleep(3000);
+
+                        if (i == NumOfLikes - 1)
+                        {
+                            SetXButton();
+                            ClickXButton();
+                        }
+                    }
+
+                    UpdateHashtagCounter();
+                }
+            }
+            catch (Exception)
+            {
+                runPassed = 0;
             }
 
             Thread.Sleep(5000);
             QuitDriver();
+
+            return runPassed;
         }
 
         #region Login Screen

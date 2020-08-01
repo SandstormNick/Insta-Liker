@@ -20,13 +20,18 @@ namespace Insta_Liker
         }
     }
 
-    //Iteration 2
-    //
-    //Add try catches for failing tests
+    //Iteration 3
+    //-->Load username on the LikerBot tab
+    //---->Need some control (probably a dropdown box) to handle
+    //-->Record likes per hashtag in the UserHashtag table
+    //-->Record number of runs for a user
+    //-->Work a little more on making try catches more descriptive
+    //-->Display data on the User tab
+    //----> Need to add a new panel for displaying info.
     //
 
     //To Do In next commits:
-    //-->
+    //-->Load username on the LikerBot tab
     //
 
     //To Do Later:
