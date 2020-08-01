@@ -50,10 +50,16 @@ BEGIN
 	DECLARE @hashtagID INT
 	SELECT @hashtagID = HashtagId FROM Hashtag WHERE @hashtag = HashtagString
 
+	--User can't be mapped to the same hashtag twice
 	IF NOT EXISTS (SELECT 1 FROM UserHashtag WHERE HashtagId = @hashtagID AND UserId = @userId )
 	BEGIN
 		INSERT INTO [dbo].[UserHashtag] (UserId, HashtagId, IsFavourite)
-		VALUES (@UserId, @hashtagID, @isFavourite)
+		VALUES (@userId, @hashtagID, @isFavourite)
+
+		DECLARE @userFavCount INT
+		SELECT @userFavCount = FavouriteCount FROM [dbo].[User]
+		SET @userFavCount = @userFavCount + 1
+		UPDATE [dbo].[User] SET FavouriteCount = @userFavCount WHERE UserId = @userId
 	END
 END
 GO
