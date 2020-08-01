@@ -320,7 +320,7 @@ namespace Insta_Liker
             this.saveUserInfoButton.Location = new System.Drawing.Point(274, 236);
             this.saveUserInfoButton.Name = "saveUserInfoButton";
             this.saveUserInfoButton.Size = new System.Drawing.Size(75, 23);
-            this.saveUserInfoButton.TabIndex = 4;
+            this.saveUserInfoButton.TabIndex = 7;
             this.saveUserInfoButton.Text = "Save User";
             this.saveUserInfoButton.UseVisualStyleBackColor = true;
             this.saveUserInfoButton.Click += new System.EventHandler(this.saveUserInfoButton_Click);
@@ -330,21 +330,21 @@ namespace Insta_Liker
             this.addHashtag5.Location = new System.Drawing.Point(6, 195);
             this.addHashtag5.Name = "addHashtag5";
             this.addHashtag5.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag5.TabIndex = 3;
+            this.addHashtag5.TabIndex = 6;
             // 
             // addHashtag4
             // 
             this.addHashtag4.Location = new System.Drawing.Point(199, 151);
             this.addHashtag4.Name = "addHashtag4";
             this.addHashtag4.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag4.TabIndex = 3;
+            this.addHashtag4.TabIndex = 5;
             // 
             // addHashtag3
             // 
             this.addHashtag3.Location = new System.Drawing.Point(6, 151);
             this.addHashtag3.Name = "addHashtag3";
             this.addHashtag3.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag3.TabIndex = 3;
+            this.addHashtag3.TabIndex = 4;
             // 
             // addHashtag2
             // 
@@ -358,7 +358,7 @@ namespace Insta_Liker
             this.addHashtag1.Location = new System.Drawing.Point(6, 104);
             this.addHashtag1.Name = "addHashtag1";
             this.addHashtag1.Size = new System.Drawing.Size(150, 20);
-            this.addHashtag1.TabIndex = 3;
+            this.addHashtag1.TabIndex = 2;
             // 
             // addHashtagLabel
             // 
