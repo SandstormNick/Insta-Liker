@@ -22,12 +22,11 @@ namespace Insta_Liker
 
     //Iteration 2
     //
-    //Add DB aspect
     //Add try catches for failing tests
     //
 
     //To Do In next commits:
-    //-->sp_CreateUser -> don't allow for duplicate usernames and add fav hashtags (find out how to add multiple create sp in one sql file)
+    //-->
     //
 
     //To Do Later:

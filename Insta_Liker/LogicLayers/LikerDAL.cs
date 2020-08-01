@@ -12,7 +12,7 @@ namespace Insta_Liker
         public int SaveUsername(string username)
         {
             //Save User to the database
-            string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
 
@@ -34,7 +34,7 @@ namespace Insta_Liker
         public void SaveHashtags(string hashtag)
         {
             //Save User to the database
-            string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
 
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
@@ -53,7 +53,7 @@ namespace Insta_Liker
 
         public void SaveUserHashtag(int userId, string hashtag)
         {
-            string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
 
