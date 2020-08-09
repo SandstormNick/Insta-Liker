@@ -71,5 +71,6 @@ CREATE PROCEDURE sp_GetUsernames
 AS
 BEGIN
 	SELECT Username FROM [dbo].[User]
+	WHERE IsActive = 1
 END
 GO
