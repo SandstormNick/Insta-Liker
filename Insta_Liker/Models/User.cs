@@ -8,12 +8,18 @@ namespace Insta_Liker.Models
 {
     public class User
     {
+        private int UserId { get; set; }
         private string Username { get; set; }
         private List<string> FavouriteHashtags { get; set; }
 
-        public void SetUsername(string inputUsername)
+        public void SetUserId(int userId)
         {
-            Username = inputUsername;
+            UserId = userId;
+        }
+
+        public void SetUsername(string username)
+        {
+            Username = username;
         }
 
         public string GetUsername()

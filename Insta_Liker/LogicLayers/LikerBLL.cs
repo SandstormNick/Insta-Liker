@@ -31,9 +31,9 @@ namespace Insta_Liker
             dal.SaveUserHashtag(userId, hashtag);
         }
 
-        public string GetUsername()
+        public List<string> GetUsernames()
         {
-            return dal.GetUsername();
+            return dal.GetUsernames();
         }
     }
 }

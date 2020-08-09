@@ -22,6 +22,7 @@ namespace Insta_Liker
 
         private List<TextBox> AddHashtagTextBox = new List<TextBox>();
         private List<string> AddHashtag = new List<string>();
+        private List<string> Usernames = new List<string>();
 
         private bool MinHashtags { get; set; }
 
@@ -39,11 +40,12 @@ namespace Insta_Liker
             HashtagTextBox.Add(hashtag5TextBox);
 
             likerController = new LikerController();
+
+            PopulateUsernameComboBox();
         }
 
         private void runButton_Click(object sender, EventArgs e)
         {
-
             UserName = usernameTextBox.Text;
             Password = passwordTextBox.Text;
 
@@ -258,6 +260,15 @@ namespace Insta_Liker
                 {
                     AddHashtag.Add(AddHashtagTextBox[i].Text);
                 }
+            }
+        }
+
+        private void PopulateUsernameComboBox()
+        {
+            Usernames = likerController.GetUsernames();
+            foreach (string username in Usernames)
+            {
+                usernameComboBox.Items.Add(username);
             }
         }
     }

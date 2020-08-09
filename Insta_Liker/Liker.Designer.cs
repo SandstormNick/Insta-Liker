@@ -67,6 +67,7 @@ namespace Insta_Liker
             this.addUsernameLabel = new System.Windows.Forms.Label();
             this.loadUserButton = new System.Windows.Forms.Button();
             this.addUserButton = new System.Windows.Forms.Button();
+            this.usernameComboBox = new System.Windows.Forms.ComboBox();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
             this.numLikesGroupBox.SuspendLayout();
@@ -89,6 +90,7 @@ namespace Insta_Liker
             // 
             // CredentialsBox
             // 
+            this.CredentialsBox.Controls.Add(this.usernameComboBox);
             this.CredentialsBox.Controls.Add(this.credentialsHeaderLabel);
             this.CredentialsBox.Controls.Add(this.passwordLabel);
             this.CredentialsBox.Controls.Add(this.usernameLabel);
@@ -406,6 +408,15 @@ namespace Insta_Liker
             this.addUserButton.UseVisualStyleBackColor = true;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
+            // usernameComboBox
+            // 
+            this.usernameComboBox.FormattingEnabled = true;
+            this.usernameComboBox.Location = new System.Drawing.Point(219, 15);
+            this.usernameComboBox.Name = "usernameComboBox";
+            this.usernameComboBox.Size = new System.Drawing.Size(165, 21);
+            this.usernameComboBox.TabIndex = 5;
+            this.usernameComboBox.Text = "Set Username";
+            // 
             // Liker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,6 +475,7 @@ namespace Insta_Liker
         private System.Windows.Forms.Label addUsernameLabel;
         private System.Windows.Forms.Button loadUserButton;
         private System.Windows.Forms.Button addUserButton;
+        private System.Windows.Forms.ComboBox usernameComboBox;
     }
 }
 

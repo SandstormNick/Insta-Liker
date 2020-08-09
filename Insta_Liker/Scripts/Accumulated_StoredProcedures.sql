@@ -63,3 +63,13 @@ BEGIN
 	END
 END
 GO
+-------------------------------
+
+--sp_SetUserHashtag - Link User to the Hashtags
+CREATE PROCEDURE sp_GetUsernames
+
+AS
+BEGIN
+	SELECT Username FROM [dbo].[User]
+END
+GO

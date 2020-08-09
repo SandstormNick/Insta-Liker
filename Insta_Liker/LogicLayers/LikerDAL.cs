@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
+using Insta_Liker.Models;
 
 namespace Insta_Liker
 {
@@ -71,23 +73,30 @@ namespace Insta_Liker
             sqlConn.Close();
         }
 
-        public string GetUsername()
+        public List<string> GetUsernames()
         {
-            string connectionString = @"Data Source=localhost;Initial Catalog=Liker;Persist Security Info=true; Integrated Security=SSPI;";
-            SqlConnection sqlConn = new SqlConnection(connectionString);
-            SqlCommand command;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            string sqlGet = "SELECT Username FROM [dbo].[User] WHERE UserId = 1";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
 
-            sqlConn.Open();
-            command = new SqlCommand(sqlGet, sqlConn);
+            List<string> usernames = new List<string>();
+            DataTable dt = new DataTable("UsernameTable");
 
-            string username = (string)(command.ExecuteScalar());
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetUsernames", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
 
-            command.Dispose();
-            sqlConn.Close();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                
+                dt.Load(sqlDataReader);
+            }
 
-            return username;
+            foreach (DataRow dr in dt.Rows)
+            {
+                usernames.Add((string)dr["Username"]);
+            }
+
+            return usernames;
         }
     }
 }

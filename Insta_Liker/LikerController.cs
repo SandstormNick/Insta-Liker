@@ -54,9 +54,9 @@ namespace Insta_Liker
 
         }
 
-        public string GetUsername()
+        public List<string> GetUsernames()
         {
-            return bll.GetUsername();
+            return bll.GetUsernames();
         }
 
     }
