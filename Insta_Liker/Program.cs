@@ -22,14 +22,13 @@ namespace Insta_Liker
 
     //Iteration 3
     //-->Record likes per hashtag in the UserHashtag table (2)
-    //-->Update LastRunDate with time as well (1)
     //-->Work a little more on making try catches more descriptive (3)
     //-->Display data on the User tab (4)
     //----> Need to add a new panel for displaying info.
     //
 
     //To Do In next commits:
-    //-->Update LastRunDate with time as well
+    //-->Record likes per hashtag in the UserHashtag table (2)
     //
 
     //To Do Later:

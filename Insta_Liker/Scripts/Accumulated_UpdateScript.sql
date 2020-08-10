@@ -61,3 +61,8 @@ CREATE TABLE [dbo].[FollowStatsHistory] (
 -- Alter User table. Add IsActive column
 ALTER TABLE [dbo].[User]
 ADD IsActive INT NOT NULL DEFAULT 1
+--------------------------------------------------------------------
+
+-- Alter User table. Change LastRunDate data type
+ALTER TABLE [User]
+ALTER COLUMN LastRunDate DATETIME
