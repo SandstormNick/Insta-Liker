@@ -91,3 +91,33 @@ BEGIN
 	AND UH.IsFavourite = 1
 END
 GO
+-------------------------------
+
+--sp_UpdateUserRunCount - Iterate NumberOfRuns by 1 on User table when the LikerBot runs successfully
+CREATE PROCEDURE sp_UpdateUserRunCount
+@username VARCHAR(100)
+
+AS
+BEGIN
+	DECLARE @userId INT
+	SELECT @userId = UserId FROM [User] WHERE Username = @username
+
+	DECLARE @runCount INT
+	SELECT @runCount = NumberOfRuns FROM [User] WHERE UserId = @userId
+
+	UPDATE [User] SET NumberOfRuns = @runCount + 1 WHERE UserId = @userId
+
+	EXEC sp_UpdateLastRunDate @userId
+END
+GO
+-------------------------------
+
+--sp_UpdateLastRunDate - Update LastRunDate on User table with current date
+CREATE PROCEDURE sp_UpdateLastRunDate
+@userId INT
+
+AS
+BEGIN
+	UPDATE [User] Set LastRunDate = GETDATE() WHERE UserId = @userId
+END
+GO

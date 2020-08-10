@@ -36,8 +36,6 @@ namespace Insta_Liker
 
         public void SaveHashtags(string hashtag)
         {
-            //Save User to the database
-
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
 
@@ -119,6 +117,20 @@ namespace Insta_Liker
             }
 
             return favHashtags;
+        }
+
+        public void UpdateRunCount(string username)
+        {
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_UpdateUserRunCount", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Dispose();
+            }
         }
     }
 }

@@ -98,10 +98,7 @@ namespace Insta_Liker
 
         private void RunLiker()
         {
-            int runPassed = 1;
-            Selenium theSelenium = new Selenium(UserName, Password, Hashtag, NumOfLikes);
-            runPassed = theSelenium.Run();
-            DisplayLikerPostRunMessage(runPassed);
+            DisplayLikerPostRunMessage(likerController.RunLikerBot(UserName, Password, Hashtag, NumOfLikes));
         }
 
         private void DisplayLikerPostRunMessage(int runPassed)

@@ -14,10 +14,6 @@ namespace Insta_Liker
         {
             int response = dal.SaveUsername(username);
 
-            //if (username != "" && username != null)
-            //{
-            //    response = dal.SaveUsername(username);
-            //}
             return response;
         }
 
@@ -39,6 +35,11 @@ namespace Insta_Liker
         public List<string> GetFavouriteHashtagsForUser(string selectedUsername)
         {
             return dal.GetFavouriteHashtagsForUser(selectedUsername);
+        }
+
+        public void UpdateRunCount(string username)
+        {
+            dal.UpdateRunCount(username);
         }
     }
 }
