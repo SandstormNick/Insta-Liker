@@ -56,3 +56,8 @@ CREATE TABLE [dbo].[FollowStatsHistory] (
 	CONSTRAINT [PK_dbo.FollowStatsHistory] PRIMARY KEY CLUSTERED ([FollowStatsHistoryId] ASC),
 	CONSTRAINT [FK_dbo.FollowStatsHistory_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[FollowStats](UserId)
 );
+--------------------------------------------------------------------
+
+-- Alter User table. Add IsActive column
+ALTER TABLE [dbo].[User]
+ADD IsActive INT NOT NULL DEFAULT 1

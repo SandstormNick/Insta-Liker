@@ -21,8 +21,6 @@ namespace Insta_Liker
     }
 
     //Iteration 3
-    //-->Load username on the LikerBot tab
-    //---->Need some control (probably a dropdown box) to handle
     //-->Record likes per hashtag in the UserHashtag table
     //-->Record number of runs for a user
     //-->Work a little more on making try catches more descriptive
@@ -31,7 +29,7 @@ namespace Insta_Liker
     //
 
     //To Do In next commits:
-    //-->Load username on the LikerBot tab
+    //-->Record number of runs for a user
     //
 
     //To Do Later:

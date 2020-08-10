@@ -74,3 +74,20 @@ BEGIN
 	WHERE IsActive = 1
 END
 GO
+-------------------------------
+
+--sp_GetFavouriteHashtagsForUser - Get the Favourite Hashtags based on a Username parameter
+CREATE PROCEDURE sp_GetFavouriteHashtagsForUser
+@username VARCHAR(100)
+
+AS
+BEGIN
+	DECLARE @userId INT
+	SELECT @userId = UserId FROM [User] WHERE Username = @username
+
+	SELECT HashtagString FROM Hashtag AS H
+	INNER JOIN UserHashtag AS UH ON H.HashtagId = UH.HashtagId
+	WHERE UH.UserId = @userId
+	AND UH.IsFavourite = 1
+END
+GO

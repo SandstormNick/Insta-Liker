@@ -35,5 +35,10 @@ namespace Insta_Liker
         {
             return dal.GetUsernames();
         }
+
+        public List<string> GetFavouriteHashtagsForUser(string selectedUsername)
+        {
+            return dal.GetFavouriteHashtagsForUser(selectedUsername);
+        }
     }
 }

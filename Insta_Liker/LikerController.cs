@@ -49,14 +49,14 @@ namespace Insta_Liker
             user.SetUsername(usernameInput);
         }
 
-        private void SetUserId(int userId)
-        {
-
-        }
-
         public List<string> GetUsernames()
         {
             return bll.GetUsernames();
+        }
+
+        public List<string> GetFavouriteHashtagsForUser(string selectedUsername)
+        {
+            return bll.GetFavouriteHashtagsForUser(selectedUsername);
         }
 
     }

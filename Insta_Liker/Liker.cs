@@ -23,6 +23,7 @@ namespace Insta_Liker
         private List<TextBox> AddHashtagTextBox = new List<TextBox>();
         private List<string> AddHashtag = new List<string>();
         private List<string> Usernames = new List<string>();
+        private List<string> UserFavHashtags = new List<string>();
 
         private bool MinHashtags { get; set; }
 
@@ -269,6 +270,17 @@ namespace Insta_Liker
             foreach (string username in Usernames)
             {
                 usernameComboBox.Items.Add(username);
+            }
+        }
+
+        private void usernameComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            usernameTextBox.Text = usernameComboBox.Text;
+
+            UserFavHashtags = likerController.GetFavouriteHashtagsForUser(usernameTextBox.Text);
+            for (int i = 0; i < UserFavHashtags.Count(); i++)
+            {
+                HashtagTextBox[i].Text = UserFavHashtags[i];
             }
         }
     }

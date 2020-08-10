@@ -11,10 +11,11 @@ namespace Insta_Liker
 {
     class LikerDAL
     {
+        private string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
+
         public int SaveUsername(string username)
         {
             //Save User to the database
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
 
@@ -36,7 +37,6 @@ namespace Insta_Liker
         public void SaveHashtags(string hashtag)
         {
             //Save User to the database
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
 
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
@@ -55,7 +55,6 @@ namespace Insta_Liker
 
         public void SaveUserHashtag(int userId, string hashtag)
         {
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
 
@@ -75,8 +74,6 @@ namespace Insta_Liker
 
         public List<string> GetUsernames()
         {
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LikerDB"].ConnectionString;
-
             List<string> usernames = new List<string>();
             DataTable dt = new DataTable("UsernameTable");
 
@@ -97,6 +94,31 @@ namespace Insta_Liker
             }
 
             return usernames;
+        }
+
+        public List<string> GetFavouriteHashtagsForUser(string selectedUsername)
+        {
+            List<string> favHashtags = new List<string>();
+            DataTable dt = new DataTable("Hashtags");
+
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetFavouriteHashtagsForUser", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", selectedUsername);
+
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                dt.Load(sqlDataReader);
+            }
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                favHashtags.Add((string)dr["HashtagString"]);
+            }
+
+            return favHashtags;
         }
     }
 }
