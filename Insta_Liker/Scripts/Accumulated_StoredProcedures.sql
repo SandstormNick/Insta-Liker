@@ -121,3 +121,23 @@ BEGIN
 	UPDATE [User] Set LastRunDate = GETDATE() WHERE UserId = @userId
 END
 GO
+-------------------------------
+
+--sp_UpdateUserHashtagLikeCount - Update LikeCount on the UserHashtag for the User and specific Hashtag
+CREATE PROCEDURE sp_UpdateUserHashtagLikeCount
+@username VARCHAR(100),
+@hashtag VARCHAR(100),
+@likeCount INT
+
+AS
+BEGIN
+	DECLARE @userId INT
+	SELECT @userId = UserId FROM [User] WHERE Username = @username
+
+	DECLARE @hashtagId INT
+	SELECT @hashtagId = HashtagId FROM Hashtag WHERE HashtagString = @hashtag
+
+	UPDATE UserHashtag SET LikeCount = @likeCount
+	WHERE UserId = @userId AND HashtagId = @hashtagId
+END
+GO

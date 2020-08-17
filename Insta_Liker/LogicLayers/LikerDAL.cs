@@ -132,5 +132,21 @@ namespace Insta_Liker
                 sqlCommand.Dispose();
             }
         }
+
+        public void UpdateUserHashtagLikeCount(string username, string hashtag, int likeCount)
+        {
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_UpdateUserHashtagLikeCount", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+                sqlCommand.Parameters.AddWithValue("@hashtag", hashtag);
+                sqlCommand.Parameters.AddWithValue("@likeCount", likeCount);
+
+                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Dispose();
+            }
+        }
     }
 }

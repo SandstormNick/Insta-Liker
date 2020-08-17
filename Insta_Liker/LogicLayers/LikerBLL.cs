@@ -41,5 +41,10 @@ namespace Insta_Liker
         {
             dal.UpdateRunCount(username);
         }
+
+        public void UpdateUserHashtagLikeCount(string username, string hashtag, int likeCount)
+        {
+            dal.UpdateUserHashtagLikeCount(username, hashtag, likeCount);
+        }
     }
 }

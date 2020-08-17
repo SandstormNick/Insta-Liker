@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
+using Insta_Liker.Models;
 
 namespace Insta_Liker
 {
@@ -49,9 +50,11 @@ namespace Insta_Liker
         }
 
         //The main method that runs the selenium
-        public int Run()
+        public int Run(User user)
         {
             int runPassed = 1;
+            int likeCount;
+
             try
             {
                 MaximiseWindow();
@@ -64,6 +67,8 @@ namespace Insta_Liker
 
                 for (int tagCount = 0; tagCount < Hashtag.Count(); tagCount++)
                 {
+                    likeCount = 0;
+
                     Thread.Sleep(10000);
                     SetHomeScreenElements();
                     EnterHashtag();
@@ -82,12 +87,15 @@ namespace Insta_Liker
                         ClickNextImageButton();
                         Thread.Sleep(3000);
 
+                        likeCount++;
+
                         if (i == NumOfLikes - 1)
                         {
                             SetXButton();
                             ClickXButton();
                         }
                     }
+                    user.UpdateHashtagLikes(tagCount, likeCount);
 
                     UpdateHashtagCounter();
                 }

@@ -61,16 +61,24 @@ namespace Insta_Liker
 
         public int RunLikerBot(string username, string password, List<string> hashtags, int numOfLikes)
         {
+            user.InitializeHashtags(hashtags);
             int runPassed = 1;
             Selenium selenium = new Selenium(username, password, hashtags, numOfLikes);
 
-            runPassed = selenium.Run();
+            runPassed = selenium.Run(user);
+
+            for (int i = 0; i < user.GetHashtagCount(); i++)
+            {
+                if (user.GetHashtagLikes(i) != 0)
+                {
+                    bll.UpdateUserHashtagLikeCount(username, user.GetHashtag(i), user.GetHashtagLikes(i));
+                }
+            }
 
             if (runPassed == 1)
             {
                 UpdateRunCount(username);
             }
-            
 
             return runPassed;
         }

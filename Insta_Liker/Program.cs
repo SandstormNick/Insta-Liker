@@ -22,13 +22,16 @@ namespace Insta_Liker
 
     //Iteration 3
     //-->Record likes per hashtag in the UserHashtag table (2)
-    //-->Work a little more on making try catches more descriptive (3)
-    //-->Display data on the User tab (4)
+    //-->Create Hashtag when user just types it into one of the textboxes. They don't only have
+    //   to be created when the user is saved. (2.1)
+    //   could do this by returning the list of hashtags linked to a user. If any hashtags in the textboxes when LikerBot is 
+    //   run then they must be added into the hashtag table and the mapping must be added to UserHashtag table
+    //-->Display data on the User tab (3)
     //----> Need to add a new panel for displaying info.
     //
 
     //To Do In next commits:
-    //-->Record likes per hashtag in the UserHashtag table (2)
+    //--> (2.1)
     //
 
     //To Do Later:
