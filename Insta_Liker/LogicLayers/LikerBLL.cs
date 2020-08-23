@@ -17,14 +17,23 @@ namespace Insta_Liker
             return response;
         }
 
+        private int CheckUserHashtagExists(int userId, string hashtag)
+        {
+            int hashtagExists = dal.CheckUserHashtagExists(userId, hashtag);
+            return hashtagExists;
+        }
+
         public void SaveHashtags(string hashtag)
         {
             dal.SaveHashtags(hashtag);
         }
 
-        public void SaveUserHashtag(int userId, string hashtag)
+        public void SaveUserHashtag(int userId, string hashtag, int isFav)
         {
-            dal.SaveUserHashtag(userId, hashtag);
+            if (CheckUserHashtagExists(userId, hashtag) == 0)
+            {
+                dal.SaveUserHashtag(userId, hashtag, isFav);
+            }
         }
 
         public List<string> GetUsernames()
@@ -45,6 +54,11 @@ namespace Insta_Liker
         public void UpdateUserHashtagLikeCount(string username, string hashtag, int likeCount)
         {
             dal.UpdateUserHashtagLikeCount(username, hashtag, likeCount);
+        }
+
+        public int GetUserId(string username)
+        {
+            return dal.GetUserId(username);
         }
     }
 }

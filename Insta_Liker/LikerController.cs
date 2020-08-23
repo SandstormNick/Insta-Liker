@@ -19,24 +19,24 @@ namespace Insta_Liker
 
         public int SaveUser(string username, List<string> addHashtag)
         {
-            int response;
+            int userId;
             //handle empty username field. Dont do this in bll.
             //display popup message if save successful or not
             SetUsername(username);
 
             if (username != "" && username != null)
             {
-                response = bll.SaveUsername(user.GetUsername());
+                userId = bll.SaveUsername(user.GetUsername());
 
-                if (response > -1)
+                if (userId > -1)
                 {
                     for (int i = 0; i < addHashtag.Count(); i++)
                     {
                         bll.SaveHashtags(addHashtag[i]);
-                        bll.SaveUserHashtag(response, addHashtag[i]);
+                        bll.SaveUserHashtag(userId, addHashtag[i], 1);
                     }
                 }
-                return response;
+                return userId;
             }
             else
             {
@@ -61,6 +61,7 @@ namespace Insta_Liker
 
         public int RunLikerBot(string username, string password, List<string> hashtags, int numOfLikes)
         {
+            SaveNewHashtags(username, hashtags);
             user.InitializeHashtags(hashtags);
             int runPassed = 1;
             Selenium selenium = new Selenium(username, password, hashtags, numOfLikes);
@@ -86,6 +87,17 @@ namespace Insta_Liker
         public void UpdateRunCount(string username)
         {
             bll.UpdateRunCount(username);
+        }
+
+        private void SaveNewHashtags(string username, List<string> hashtags)
+        {
+            int userId = bll.GetUserId(username);
+            for (int i = 0; i < hashtags.Count(); i++)
+            {
+                hashtags[i] = hashtags[i].Trim(new Char[] { '#' });
+                bll.SaveHashtags(hashtags[i]);
+                bll.SaveUserHashtag(userId, hashtags[i], 0);
+            }
         }
 
     }

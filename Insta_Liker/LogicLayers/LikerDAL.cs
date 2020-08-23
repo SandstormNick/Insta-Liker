@@ -34,6 +34,43 @@ namespace Insta_Liker
             return response;
         }
 
+        public int CheckUserHashtagExists(int userId, string hashtag)
+        {
+            int hashtagExists = 0;
+
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_CheckUserHashtagExists", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@userId", userId);
+                sqlCommand.Parameters.AddWithValue("@hashtag", hashtag);
+
+                hashtagExists = (int)sqlCommand.ExecuteScalar();
+
+                sqlCommand.Dispose();
+            }
+
+            return hashtagExists;
+        }
+
+        public int GetUserId(string username)
+        {
+            int userId;
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetUserId", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+
+                userId = (int)sqlCommand.ExecuteScalar();
+
+                sqlCommand.Dispose();
+            }
+            return userId;
+        }
+
         public void SaveHashtags(string hashtag)
         {
             SqlConnection sqlConn = new SqlConnection(connectionString);
@@ -51,7 +88,7 @@ namespace Insta_Liker
             sqlConn.Close();
         }
 
-        public void SaveUserHashtag(int userId, string hashtag)
+        public void SaveUserHashtag(int userId, string hashtag, int isFavourite)
         {
             SqlConnection sqlConn = new SqlConnection(connectionString);
             SqlCommand command;
@@ -63,7 +100,7 @@ namespace Insta_Liker
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@userId", userId);
             command.Parameters.AddWithValue("@hashtag", hashtag);
-            command.Parameters.AddWithValue("@isFavourite", 1);
+            command.Parameters.AddWithValue("@isFavourite", isFavourite);
 
             command.ExecuteNonQuery();
             command.Dispose();

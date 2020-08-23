@@ -141,3 +141,36 @@ BEGIN
 	WHERE UserId = @userId AND HashtagId = @hashtagId
 END
 GO
+-------------------------------
+
+--sp_CheckUserHashtagExists - Checks if a User is linked to a Hashtag
+CREATE PROCEDURE sp_CheckUserHashtagExists
+@userId INT,
+@hashtag VARCHAR(100)
+
+AS
+BEGIN
+	DECLARE @hashtagId INT
+	SELECT @hashtagId = HashtagId FROM Hashtag WHERE HashtagString = @hashtag
+
+	IF EXISTS (SELECT 1 FROM UserHashtag WHERE UserId = @userId AND HashtagId = @hashtagId)
+	BEGIN
+		SELECT 1
+	END
+	ELSE
+	BEGIN
+		SELECT 0
+	END
+END
+GO
+-------------------------------
+
+--sp_GetUserId - Get UserId using the username
+CREATE PROCEDURE sp_GetUserId
+@username VARCHAR(100)
+
+AS
+BEGIN
+	SELECT UserId FROM [dbo].[User] WHERE Username = @username;
+END
+GO
