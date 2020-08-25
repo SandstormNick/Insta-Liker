@@ -33,7 +33,6 @@ namespace Insta_Liker
     //Refactor Designer.cs
     //split up the Selenium class (this can be part of the refactoring)
     //sort out a careful algorithm to make the speed of likes look natural
-    //end selenium after its done executing
     //add try catches in cases of elements not loading fast enough
 
 

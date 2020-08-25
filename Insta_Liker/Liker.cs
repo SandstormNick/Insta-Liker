@@ -220,6 +220,11 @@ namespace Insta_Liker
             addUserPanel.Visible = true;
         }
 
+        private void loadUserButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void saveUserInfoButton_Click(object sender, EventArgs e)
         {
             int response;
