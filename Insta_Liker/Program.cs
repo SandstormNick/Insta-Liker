@@ -21,8 +21,7 @@ namespace Insta_Liker
     }
 
     //Iteration 3
-    //-->Display data on the User tab (3)
-    //----> Need to add a new panel for displaying info.
+    //-->Fill data on the User tab based on the selected Username (3)
     //
 
     //To Do In next commits:

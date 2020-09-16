@@ -56,6 +56,23 @@ namespace Insta_Liker
             this.TabControl = new System.Windows.Forms.TabControl();
             this.likerbotTabPage = new System.Windows.Forms.TabPage();
             this.userTabPage = new System.Windows.Forms.TabPage();
+            this.loadUserPanel = new System.Windows.Forms.Panel();
+            this.btnChangeFavHashtag = new System.Windows.Forms.Button();
+            this.txtBoxNewFavHashtag = new System.Windows.Forms.TextBox();
+            this.comboBoxFavHashtag = new System.Windows.Forms.ComboBox();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtBoxLastRunDate = new System.Windows.Forms.TextBox();
+            this.txtBoxNumOfRuns = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.loadUserUsernameTxtbox = new System.Windows.Forms.TextBox();
+            this.selectUsernameComboBox = new System.Windows.Forms.ComboBox();
+            this.lblChangeFavHashtag = new System.Windows.Forms.Label();
+            this.lblFavHashtags = new System.Windows.Forms.Label();
+            this.lblLastRunDate = new System.Windows.Forms.Label();
+            this.lblNumOfRuns = new System.Windows.Forms.Label();
+            this.lblDateCreated = new System.Windows.Forms.Label();
+            this.lblSelectUsername = new System.Windows.Forms.Label();
             this.addUserPanel = new System.Windows.Forms.Panel();
             this.saveUserInfoButton = new System.Windows.Forms.Button();
             this.addHashtag5 = new System.Windows.Forms.TextBox();
@@ -68,32 +85,15 @@ namespace Insta_Liker
             this.addUsernameLabel = new System.Windows.Forms.Label();
             this.loadUserButton = new System.Windows.Forms.Button();
             this.addUserButton = new System.Windows.Forms.Button();
-            this.loadUserPanel = new System.Windows.Forms.Panel();
-            this.lblSelectUsername = new System.Windows.Forms.Label();
-            this.selectUsernameComboBox = new System.Windows.Forms.ComboBox();
-            this.loadUserUsernameTxtbox = new System.Windows.Forms.TextBox();
-            this.lblDateCreated = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblNumOfRuns = new System.Windows.Forms.Label();
-            this.txtBoxNumOfRuns = new System.Windows.Forms.TextBox();
-            this.lblLastRunDate = new System.Windows.Forms.Label();
-            this.txtBoxLastRunDate = new System.Windows.Forms.TextBox();
-            this.lblFavHashtags = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.lblChangeFavHashtag = new System.Windows.Forms.Label();
-            this.comboBoxFavHashtag = new System.Windows.Forms.ComboBox();
-            this.txtBoxNewFavHashtag = new System.Windows.Forms.TextBox();
-            this.btnChangeFavHashtag = new System.Windows.Forms.Button();
             this.CredentialsBox.SuspendLayout();
             this.hashtagFormBox.SuspendLayout();
             this.numLikesGroupBox.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.likerbotTabPage.SuspendLayout();
             this.userTabPage.SuspendLayout();
-            this.addUserPanel.SuspendLayout();
             this.loadUserPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.addUserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainHeaderLabel
@@ -330,6 +330,168 @@ namespace Insta_Liker
             this.userTabPage.Text = "User";
             this.userTabPage.UseVisualStyleBackColor = true;
             // 
+            // loadUserPanel
+            // 
+            this.loadUserPanel.Controls.Add(this.btnChangeFavHashtag);
+            this.loadUserPanel.Controls.Add(this.txtBoxNewFavHashtag);
+            this.loadUserPanel.Controls.Add(this.comboBoxFavHashtag);
+            this.loadUserPanel.Controls.Add(this.btnDeleteUser);
+            this.loadUserPanel.Controls.Add(this.dataGridView1);
+            this.loadUserPanel.Controls.Add(this.txtBoxLastRunDate);
+            this.loadUserPanel.Controls.Add(this.txtBoxNumOfRuns);
+            this.loadUserPanel.Controls.Add(this.textBox1);
+            this.loadUserPanel.Controls.Add(this.loadUserUsernameTxtbox);
+            this.loadUserPanel.Controls.Add(this.selectUsernameComboBox);
+            this.loadUserPanel.Controls.Add(this.lblChangeFavHashtag);
+            this.loadUserPanel.Controls.Add(this.lblFavHashtags);
+            this.loadUserPanel.Controls.Add(this.lblLastRunDate);
+            this.loadUserPanel.Controls.Add(this.lblNumOfRuns);
+            this.loadUserPanel.Controls.Add(this.lblDateCreated);
+            this.loadUserPanel.Controls.Add(this.lblSelectUsername);
+            this.loadUserPanel.Location = new System.Drawing.Point(6, 35);
+            this.loadUserPanel.Name = "loadUserPanel";
+            this.loadUserPanel.Size = new System.Drawing.Size(401, 391);
+            this.loadUserPanel.TabIndex = 7;
+            this.loadUserPanel.Visible = false;
+            // 
+            // btnChangeFavHashtag
+            // 
+            this.btnChangeFavHashtag.Location = new System.Drawing.Point(314, 354);
+            this.btnChangeFavHashtag.Name = "btnChangeFavHashtag";
+            this.btnChangeFavHashtag.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeFavHashtag.TabIndex = 10;
+            this.btnChangeFavHashtag.Text = "Change";
+            this.btnChangeFavHashtag.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxNewFavHashtag
+            // 
+            this.txtBoxNewFavHashtag.Location = new System.Drawing.Point(178, 356);
+            this.txtBoxNewFavHashtag.Name = "txtBoxNewFavHashtag";
+            this.txtBoxNewFavHashtag.Size = new System.Drawing.Size(123, 20);
+            this.txtBoxNewFavHashtag.TabIndex = 9;
+            // 
+            // comboBoxFavHashtag
+            // 
+            this.comboBoxFavHashtag.FormattingEnabled = true;
+            this.comboBoxFavHashtag.Location = new System.Drawing.Point(8, 356);
+            this.comboBoxFavHashtag.Name = "comboBoxFavHashtag";
+            this.comboBoxFavHashtag.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxFavHashtag.TabIndex = 8;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Location = new System.Drawing.Point(314, 16);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteUser.TabIndex = 7;
+            this.btnDeleteUser.Text = "Delete User";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 203);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(381, 112);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // txtBoxLastRunDate
+            // 
+            this.txtBoxLastRunDate.Location = new System.Drawing.Point(116, 141);
+            this.txtBoxLastRunDate.Name = "txtBoxLastRunDate";
+            this.txtBoxLastRunDate.Size = new System.Drawing.Size(126, 20);
+            this.txtBoxLastRunDate.TabIndex = 5;
+            // 
+            // txtBoxNumOfRuns
+            // 
+            this.txtBoxNumOfRuns.Location = new System.Drawing.Point(116, 107);
+            this.txtBoxNumOfRuns.Name = "txtBoxNumOfRuns";
+            this.txtBoxNumOfRuns.Size = new System.Drawing.Size(77, 20);
+            this.txtBoxNumOfRuns.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(252, 67);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(137, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // loadUserUsernameTxtbox
+            // 
+            this.loadUserUsernameTxtbox.Location = new System.Drawing.Point(6, 67);
+            this.loadUserUsernameTxtbox.Name = "loadUserUsernameTxtbox";
+            this.loadUserUsernameTxtbox.Size = new System.Drawing.Size(133, 20);
+            this.loadUserUsernameTxtbox.TabIndex = 2;
+            // 
+            // selectUsernameComboBox
+            // 
+            this.selectUsernameComboBox.FormattingEnabled = true;
+            this.selectUsernameComboBox.Location = new System.Drawing.Point(121, 17);
+            this.selectUsernameComboBox.Name = "selectUsernameComboBox";
+            this.selectUsernameComboBox.Size = new System.Drawing.Size(137, 21);
+            this.selectUsernameComboBox.TabIndex = 1;
+            this.selectUsernameComboBox.SelectedIndexChanged += new System.EventHandler(this.selectUsernameComboBox_SelectedIndexChanged);
+            // 
+            // lblChangeFavHashtag
+            // 
+            this.lblChangeFavHashtag.AutoSize = true;
+            this.lblChangeFavHashtag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeFavHashtag.Location = new System.Drawing.Point(5, 327);
+            this.lblChangeFavHashtag.Name = "lblChangeFavHashtag";
+            this.lblChangeFavHashtag.Size = new System.Drawing.Size(171, 16);
+            this.lblChangeFavHashtag.TabIndex = 0;
+            this.lblChangeFavHashtag.Text = "Change Favourite Hashtag:";
+            // 
+            // lblFavHashtags
+            // 
+            this.lblFavHashtags.AutoSize = true;
+            this.lblFavHashtags.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFavHashtags.Location = new System.Drawing.Point(5, 179);
+            this.lblFavHashtags.Name = "lblFavHashtags";
+            this.lblFavHashtags.Size = new System.Drawing.Size(128, 16);
+            this.lblFavHashtags.TabIndex = 0;
+            this.lblFavHashtags.Text = "Favourite Hashtags:";
+            // 
+            // lblLastRunDate
+            // 
+            this.lblLastRunDate.AutoSize = true;
+            this.lblLastRunDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastRunDate.Location = new System.Drawing.Point(3, 142);
+            this.lblLastRunDate.Name = "lblLastRunDate";
+            this.lblLastRunDate.Size = new System.Drawing.Size(95, 16);
+            this.lblLastRunDate.TabIndex = 0;
+            this.lblLastRunDate.Text = "Last Run Date:";
+            // 
+            // lblNumOfRuns
+            // 
+            this.lblNumOfRuns.AutoSize = true;
+            this.lblNumOfRuns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumOfRuns.Location = new System.Drawing.Point(3, 108);
+            this.lblNumOfRuns.Name = "lblNumOfRuns";
+            this.lblNumOfRuns.Size = new System.Drawing.Size(107, 16);
+            this.lblNumOfRuns.TabIndex = 0;
+            this.lblNumOfRuns.Text = "Number of Runs:";
+            // 
+            // lblDateCreated
+            // 
+            this.lblDateCreated.AutoSize = true;
+            this.lblDateCreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateCreated.Location = new System.Drawing.Point(155, 68);
+            this.lblDateCreated.Name = "lblDateCreated";
+            this.lblDateCreated.Size = new System.Drawing.Size(91, 16);
+            this.lblDateCreated.TabIndex = 0;
+            this.lblDateCreated.Text = "Date Created:";
+            // 
+            // lblSelectUsername
+            // 
+            this.lblSelectUsername.AutoSize = true;
+            this.lblSelectUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectUsername.Location = new System.Drawing.Point(3, 18);
+            this.lblSelectUsername.Name = "lblSelectUsername";
+            this.lblSelectUsername.Size = new System.Drawing.Size(115, 16);
+            this.lblSelectUsername.TabIndex = 0;
+            this.lblSelectUsername.Text = "Select Username:";
+            // 
             // addUserPanel
             // 
             this.addUserPanel.Controls.Add(this.saveUserInfoButton);
@@ -439,167 +601,6 @@ namespace Insta_Liker
             this.addUserButton.UseVisualStyleBackColor = true;
             this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
-            // loadUserPanel
-            // 
-            this.loadUserPanel.Controls.Add(this.btnChangeFavHashtag);
-            this.loadUserPanel.Controls.Add(this.txtBoxNewFavHashtag);
-            this.loadUserPanel.Controls.Add(this.comboBoxFavHashtag);
-            this.loadUserPanel.Controls.Add(this.btnDeleteUser);
-            this.loadUserPanel.Controls.Add(this.dataGridView1);
-            this.loadUserPanel.Controls.Add(this.txtBoxLastRunDate);
-            this.loadUserPanel.Controls.Add(this.txtBoxNumOfRuns);
-            this.loadUserPanel.Controls.Add(this.textBox1);
-            this.loadUserPanel.Controls.Add(this.loadUserUsernameTxtbox);
-            this.loadUserPanel.Controls.Add(this.selectUsernameComboBox);
-            this.loadUserPanel.Controls.Add(this.lblChangeFavHashtag);
-            this.loadUserPanel.Controls.Add(this.lblFavHashtags);
-            this.loadUserPanel.Controls.Add(this.lblLastRunDate);
-            this.loadUserPanel.Controls.Add(this.lblNumOfRuns);
-            this.loadUserPanel.Controls.Add(this.lblDateCreated);
-            this.loadUserPanel.Controls.Add(this.lblSelectUsername);
-            this.loadUserPanel.Location = new System.Drawing.Point(6, 35);
-            this.loadUserPanel.Name = "loadUserPanel";
-            this.loadUserPanel.Size = new System.Drawing.Size(401, 391);
-            this.loadUserPanel.TabIndex = 7;
-            this.loadUserPanel.Visible = false;
-            // 
-            // lblSelectUsername
-            // 
-            this.lblSelectUsername.AutoSize = true;
-            this.lblSelectUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectUsername.Location = new System.Drawing.Point(3, 18);
-            this.lblSelectUsername.Name = "lblSelectUsername";
-            this.lblSelectUsername.Size = new System.Drawing.Size(115, 16);
-            this.lblSelectUsername.TabIndex = 0;
-            this.lblSelectUsername.Text = "Select Username:";
-            // 
-            // selectUsernameComboBox
-            // 
-            this.selectUsernameComboBox.FormattingEnabled = true;
-            this.selectUsernameComboBox.Location = new System.Drawing.Point(121, 17);
-            this.selectUsernameComboBox.Name = "selectUsernameComboBox";
-            this.selectUsernameComboBox.Size = new System.Drawing.Size(137, 21);
-            this.selectUsernameComboBox.TabIndex = 1;
-            // 
-            // loadUserUsernameTxtbox
-            // 
-            this.loadUserUsernameTxtbox.Location = new System.Drawing.Point(6, 67);
-            this.loadUserUsernameTxtbox.Name = "loadUserUsernameTxtbox";
-            this.loadUserUsernameTxtbox.Size = new System.Drawing.Size(133, 20);
-            this.loadUserUsernameTxtbox.TabIndex = 2;
-            // 
-            // lblDateCreated
-            // 
-            this.lblDateCreated.AutoSize = true;
-            this.lblDateCreated.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateCreated.Location = new System.Drawing.Point(155, 68);
-            this.lblDateCreated.Name = "lblDateCreated";
-            this.lblDateCreated.Size = new System.Drawing.Size(91, 16);
-            this.lblDateCreated.TabIndex = 0;
-            this.lblDateCreated.Text = "Date Created:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(252, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // lblNumOfRuns
-            // 
-            this.lblNumOfRuns.AutoSize = true;
-            this.lblNumOfRuns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumOfRuns.Location = new System.Drawing.Point(3, 108);
-            this.lblNumOfRuns.Name = "lblNumOfRuns";
-            this.lblNumOfRuns.Size = new System.Drawing.Size(107, 16);
-            this.lblNumOfRuns.TabIndex = 0;
-            this.lblNumOfRuns.Text = "Number of Runs:";
-            // 
-            // txtBoxNumOfRuns
-            // 
-            this.txtBoxNumOfRuns.Location = new System.Drawing.Point(116, 107);
-            this.txtBoxNumOfRuns.Name = "txtBoxNumOfRuns";
-            this.txtBoxNumOfRuns.Size = new System.Drawing.Size(77, 20);
-            this.txtBoxNumOfRuns.TabIndex = 4;
-            // 
-            // lblLastRunDate
-            // 
-            this.lblLastRunDate.AutoSize = true;
-            this.lblLastRunDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastRunDate.Location = new System.Drawing.Point(3, 142);
-            this.lblLastRunDate.Name = "lblLastRunDate";
-            this.lblLastRunDate.Size = new System.Drawing.Size(95, 16);
-            this.lblLastRunDate.TabIndex = 0;
-            this.lblLastRunDate.Text = "Last Run Date:";
-            // 
-            // txtBoxLastRunDate
-            // 
-            this.txtBoxLastRunDate.Location = new System.Drawing.Point(116, 141);
-            this.txtBoxLastRunDate.Name = "txtBoxLastRunDate";
-            this.txtBoxLastRunDate.Size = new System.Drawing.Size(126, 20);
-            this.txtBoxLastRunDate.TabIndex = 5;
-            // 
-            // lblFavHashtags
-            // 
-            this.lblFavHashtags.AutoSize = true;
-            this.lblFavHashtags.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavHashtags.Location = new System.Drawing.Point(5, 179);
-            this.lblFavHashtags.Name = "lblFavHashtags";
-            this.lblFavHashtags.Size = new System.Drawing.Size(128, 16);
-            this.lblFavHashtags.TabIndex = 0;
-            this.lblFavHashtags.Text = "Favourite Hashtags:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 203);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(381, 112);
-            this.dataGridView1.TabIndex = 6;
-            // 
-            // btnDeleteUser
-            // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(314, 16);
-            this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteUser.TabIndex = 7;
-            this.btnDeleteUser.Text = "Delete User";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
-            // 
-            // lblChangeFavHashtag
-            // 
-            this.lblChangeFavHashtag.AutoSize = true;
-            this.lblChangeFavHashtag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeFavHashtag.Location = new System.Drawing.Point(5, 327);
-            this.lblChangeFavHashtag.Name = "lblChangeFavHashtag";
-            this.lblChangeFavHashtag.Size = new System.Drawing.Size(171, 16);
-            this.lblChangeFavHashtag.TabIndex = 0;
-            this.lblChangeFavHashtag.Text = "Change Favourite Hashtag:";
-            // 
-            // comboBoxFavHashtag
-            // 
-            this.comboBoxFavHashtag.FormattingEnabled = true;
-            this.comboBoxFavHashtag.Location = new System.Drawing.Point(8, 356);
-            this.comboBoxFavHashtag.Name = "comboBoxFavHashtag";
-            this.comboBoxFavHashtag.Size = new System.Drawing.Size(160, 21);
-            this.comboBoxFavHashtag.TabIndex = 8;
-            // 
-            // txtBoxNewFavHashtag
-            // 
-            this.txtBoxNewFavHashtag.Location = new System.Drawing.Point(178, 356);
-            this.txtBoxNewFavHashtag.Name = "txtBoxNewFavHashtag";
-            this.txtBoxNewFavHashtag.Size = new System.Drawing.Size(123, 20);
-            this.txtBoxNewFavHashtag.TabIndex = 9;
-            // 
-            // btnChangeFavHashtag
-            // 
-            this.btnChangeFavHashtag.Location = new System.Drawing.Point(314, 354);
-            this.btnChangeFavHashtag.Name = "btnChangeFavHashtag";
-            this.btnChangeFavHashtag.Size = new System.Drawing.Size(75, 23);
-            this.btnChangeFavHashtag.TabIndex = 10;
-            this.btnChangeFavHashtag.Text = "Change";
-            this.btnChangeFavHashtag.UseVisualStyleBackColor = true;
-            // 
             // Liker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,11 +620,11 @@ namespace Insta_Liker
             this.TabControl.ResumeLayout(false);
             this.likerbotTabPage.ResumeLayout(false);
             this.userTabPage.ResumeLayout(false);
-            this.addUserPanel.ResumeLayout(false);
-            this.addUserPanel.PerformLayout();
             this.loadUserPanel.ResumeLayout(false);
             this.loadUserPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.addUserPanel.ResumeLayout(false);
+            this.addUserPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

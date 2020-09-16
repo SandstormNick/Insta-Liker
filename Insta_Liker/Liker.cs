@@ -42,7 +42,7 @@ namespace Insta_Liker
 
             likerController = new LikerController();
 
-            PopulateUsernameComboBox();
+            PopulateUsernameComboBoxes();
         }
 
         private void runButton_Click(object sender, EventArgs e)
@@ -218,11 +218,13 @@ namespace Insta_Liker
         private void addUserButton_Click(object sender, EventArgs e)
         {
             addUserPanel.Visible = true;
+            loadUserPanel.Visible = false;
         }
 
         private void loadUserButton_Click(object sender, EventArgs e)
         {
-
+            loadUserPanel.Visible = true;
+            addUserPanel.Visible = false;
         }
 
         private void saveUserInfoButton_Click(object sender, EventArgs e)
@@ -266,12 +268,13 @@ namespace Insta_Liker
             }
         }
 
-        private void PopulateUsernameComboBox()
+        private void PopulateUsernameComboBoxes()
         {
             Usernames = likerController.GetUsernames();
             foreach (string username in Usernames)
             {
                 usernameComboBox.Items.Add(username);
+                selectUsernameComboBox.Items.Add(username);
             }
         }
 
@@ -284,6 +287,11 @@ namespace Insta_Liker
             {
                 HashtagTextBox[i].Text = UserFavHashtags[i];
             }
+        }
+
+        private void selectUsernameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadUserUsernameTxtbox.Text = selectUsernameComboBox.Text;
         }
     }
 }
