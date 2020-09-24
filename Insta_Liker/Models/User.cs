@@ -13,6 +13,10 @@ namespace Insta_Liker.Models
         private List<string> Hashtags { get; set; }
         private List<int> HashtagLikes { get; set; }
 
+        public DateTime LastRunDate { get; set; }
+        public string DateCreated { get; set; }
+        public int RunCount { get; set; }
+
         public void SetUserId(int userId)
         {
             UserId = userId;

@@ -64,7 +64,7 @@ namespace Insta_Liker
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtBoxLastRunDate = new System.Windows.Forms.TextBox();
             this.txtBoxNumOfRuns = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxDateCreated = new System.Windows.Forms.TextBox();
             this.loadUserUsernameTxtbox = new System.Windows.Forms.TextBox();
             this.selectUsernameComboBox = new System.Windows.Forms.ComboBox();
             this.lblChangeFavHashtag = new System.Windows.Forms.Label();
@@ -339,7 +339,7 @@ namespace Insta_Liker
             this.loadUserPanel.Controls.Add(this.dataGridView1);
             this.loadUserPanel.Controls.Add(this.txtBoxLastRunDate);
             this.loadUserPanel.Controls.Add(this.txtBoxNumOfRuns);
-            this.loadUserPanel.Controls.Add(this.textBox1);
+            this.loadUserPanel.Controls.Add(this.txtBoxDateCreated);
             this.loadUserPanel.Controls.Add(this.loadUserUsernameTxtbox);
             this.loadUserPanel.Controls.Add(this.selectUsernameComboBox);
             this.loadUserPanel.Controls.Add(this.lblChangeFavHashtag);
@@ -409,12 +409,12 @@ namespace Insta_Liker
             this.txtBoxNumOfRuns.Size = new System.Drawing.Size(77, 20);
             this.txtBoxNumOfRuns.TabIndex = 4;
             // 
-            // textBox1
+            // txtBoxDateCreated
             // 
-            this.textBox1.Location = new System.Drawing.Point(252, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtBoxDateCreated.Location = new System.Drawing.Point(252, 67);
+            this.txtBoxDateCreated.Name = "txtBoxDateCreated";
+            this.txtBoxDateCreated.Size = new System.Drawing.Size(137, 20);
+            this.txtBoxDateCreated.TabIndex = 3;
             // 
             // loadUserUsernameTxtbox
             // 
@@ -666,7 +666,7 @@ namespace Insta_Liker
         private System.Windows.Forms.Panel loadUserPanel;
         private System.Windows.Forms.TextBox txtBoxLastRunDate;
         private System.Windows.Forms.TextBox txtBoxNumOfRuns;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxDateCreated;
         private System.Windows.Forms.TextBox loadUserUsernameTxtbox;
         private System.Windows.Forms.ComboBox selectUsernameComboBox;
         private System.Windows.Forms.Label lblFavHashtags;

@@ -100,5 +100,31 @@ namespace Insta_Liker
             }
         }
 
+        public void SetUser(string username)
+        {
+            user.SetUserId(bll.GetUserId(username));
+            user.SetUsername(username);
+            user.LastRunDate = bll.GetLastRunDate(username);
+            user.RunCount = bll.GetRunCount(username);
+            user.DateCreated = bll.GetDateCreated(username);
+            //call stored procedures
+            //set the user properties
+        }
+
+        public string GetLastRunDate()
+        {
+            return user.LastRunDate.ToString();
+        }
+
+        public string GetDateCreated()
+        {
+            return user.DateCreated;
+        }
+
+        public int GetUserRunCount()
+        {
+            return user.RunCount;
+        }
+
     }
 }

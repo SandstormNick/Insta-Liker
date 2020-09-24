@@ -185,5 +185,56 @@ namespace Insta_Liker
                 sqlCommand.Dispose();
             }
         }
+
+        public DateTime GetLastRunDate(string username)
+        {
+            DateTime lastRun;
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetUserLastRunDate", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+
+                lastRun = (DateTime)sqlCommand.ExecuteScalar();
+
+                sqlCommand.Dispose();
+            }
+            return lastRun;
+        }
+
+        public DateTime GetDateCreated(string username)
+        {
+            DateTime dateCreated;
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetUserDateCreated", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+
+                dateCreated = (DateTime)sqlCommand.ExecuteScalar();
+
+                sqlCommand.Dispose();
+            }
+            return dateCreated;
+        }
+
+        public int GetRunCount(string username)
+        {
+            int runCount;
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                SqlCommand sqlCommand = new SqlCommand("sp_GetUserRunCount", sqlConn);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@username", username);
+
+                runCount = (int)sqlCommand.ExecuteScalar();
+
+                sqlCommand.Dispose();
+            }
+            return runCount;
+        }
     }
 }

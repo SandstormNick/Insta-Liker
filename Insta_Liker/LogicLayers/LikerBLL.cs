@@ -60,5 +60,21 @@ namespace Insta_Liker
         {
             return dal.GetUserId(username);
         }
+
+        public DateTime GetLastRunDate(string username)
+        {
+            return dal.GetLastRunDate(username);
+        }
+
+        public string GetDateCreated(string username)
+        {
+            DateTime dateCreated = dal.GetDateCreated(username);
+            return dateCreated.ToShortDateString();
+        }
+
+        public int GetRunCount(string username)
+        {
+            return dal.GetRunCount(username);
+        }
     }
 }

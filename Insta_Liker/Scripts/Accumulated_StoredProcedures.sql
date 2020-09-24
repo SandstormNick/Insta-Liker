@@ -174,3 +174,36 @@ BEGIN
 	SELECT UserId FROM [dbo].[User] WHERE Username = @username;
 END
 GO
+-------------------------------
+
+--sp_GetUserLastRunDate - Get the LastRunDate for a User using the username
+CREATE PROCEDURE sp_GetUserLastRunDate
+@username VARCHAR(100)
+
+AS
+BEGIN
+	SELECT LastRunDate FROM [dbo].[User] WHERE Username = @username
+END
+GO
+-------------------------------
+
+--sp_GetUserRunCount - Get the NumberOfRuns for a User using the username
+CREATE PROCEDURE sp_GetUserRunCount
+@username VARCHAR(100)
+
+AS
+BEGIN
+	SELECT NumberOfRuns FROM [dbo].[User] WHERE Username = @username
+END
+GO
+-------------------------------
+
+--sp_GetUserDateCreated - Get the DateCreated for a User using the username
+CREATE PROCEDURE sp_GetUserDateCreated
+@username VARCHAR(100)
+
+AS
+BEGIN
+	SELECT DateCreated FROM [dbo].[User] WHERE Username = @username
+END
+GO

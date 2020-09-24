@@ -291,7 +291,11 @@ namespace Insta_Liker
 
         private void selectUsernameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            likerController.SetUser(selectUsernameComboBox.Text);
             loadUserUsernameTxtbox.Text = selectUsernameComboBox.Text;
+            txtBoxDateCreated.Text = likerController.GetDateCreated();
+            txtBoxLastRunDate.Text = likerController.GetLastRunDate();
+            txtBoxNumOfRuns.Text = likerController.GetUserRunCount().ToString();
         }
     }
 }

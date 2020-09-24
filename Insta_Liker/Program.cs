@@ -21,7 +21,7 @@ namespace Insta_Liker
     }
 
     //Iteration 3
-    //-->Fill data on the User tab based on the selected Username (3)
+    //-->Get Hashtags for User based on selected Username (3)
     //
 
     //To Do In next commits:
